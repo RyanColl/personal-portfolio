@@ -1,5 +1,5 @@
 import Head from 'next/head'
-const IndexPage = ({ logo }) => {
+const IndexPage = () => {
   
   return(
     <>
