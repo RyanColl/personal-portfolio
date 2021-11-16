@@ -11,7 +11,7 @@
   }
 }
 .App {
-  background-color: #282c34;
+  background-color: #2e2e2e;
   color: white;
   text-align: center;
 }
@@ -22,7 +22,6 @@
   color: #61dafb;
 }
 .navbar {
-  display: flex;
   flex-direction:row;
   justify-content: flex-start;
   align-items: center;

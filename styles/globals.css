@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-50;
-  margin: 0;
+*, html {
+  margin:0;
+  padding:0;  
 }
 
-input {
-  /** Remove shadow on Safari iOS */
-  -webkit-appearance: none;
-}
