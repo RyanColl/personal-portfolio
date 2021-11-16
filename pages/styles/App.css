@@ -21,12 +21,20 @@
 .App-link {
   color: #61dafb;
 }
-.navbar {
+.custom-navbar {
+  display: flex;
+  padding: 100px 2rem .25rem 2rem;
   flex-direction:row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 100%;
+  width: clamp(300px, 80%, 700px);
+
+}
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @keyframes App-logo-spin {
   from {
