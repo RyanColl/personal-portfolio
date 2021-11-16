@@ -14,6 +14,15 @@
   background-color: #2e2e2e;
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.App-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .item {
   margin-left: 20px;
@@ -35,6 +44,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.nav-item {
+  margin: 10px;
 }
 @keyframes App-logo-spin {
   from {
