@@ -1,5 +1,5 @@
-import Redis from 'ioredis'
-import { key } from '../secrets/secrets'
+//@ts-ignore
+const Redis = require('ioredis')
+const { key } = require('../secrets/secrets')
 const redis = new Redis(key)
-
-export default redis
+module.exports = {redis}

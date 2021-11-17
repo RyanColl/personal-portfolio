@@ -1,4 +1,5 @@
 import './styles/App.css';
+import './styles/NavBar.css';
 import { AppProps } from 'next/app';
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
