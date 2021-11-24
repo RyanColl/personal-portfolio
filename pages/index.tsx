@@ -4,25 +4,22 @@ import { useEffect, useState } from 'react';
 const IndexPage = () => {
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
-    setLightTheme(!lightTheme)
-    fetch('/setTheme', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache',
-      credentials: 'same-origin',
+    
+    fetch("/setTheme", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({lightTheme: !lightTheme})
-    })
+      body: JSON.stringify({ lightTheme: !lightTheme }),
+    });
+    setLightTheme(!lightTheme);
   }
   
   useEffect(() => {
     document.body.style.margin = '0';
     fetch('/getTheme').then(data => (data.json()))
       .then(data => {
-        if(data.lightTheme === 'false') setLightTheme(false)
-        if(data.lightTheme === 'true') setLightTheme(true)
+        if(data.lightTheme) setLightTheme(true)
       })
   }, []);
   return(

@@ -11,16 +11,24 @@ app.prepare()
   server.use(express.json()) // need this to receive req.body
   server.use(middleware)
   // sets the theme when button is pressed
-  server.post('/setTheme', (req, res, next) => {
-      console.log(req.body.lightTheme)
-      redis.set('lightTheme', req.body.lightTheme)
-      return res.send({})
-  })
+  server.post("/setTheme", (req, res, next) => {
+    console.log(req.body.lightTheme)
+    redis
+      .set(`${req.ip}`, JSON.stringify({ lightTheme: req.body.lightTheme }))
+      .then((s) => {
+        return res.send({ok: s});
+      }).catch(e => res.send({ok: false}))
+  });
   // gets the theme from cache/server
   server.get('/getTheme', (req, res) => {
-      redis.get('lightTheme').then(result => {
-        return res.send({lightTheme: result})
+      redis.get(`${req.ip}`).then(s => {
+        console.log(JSON.parse(s))
+        if(!JSON.parse(s)) return res.send({lightTheme: false})
+        if(JSON.parse(s)) return JSON.parse(s)  
       })
+      .then(result => {
+        return res.send({lightTheme: result.lightTheme})
+      }).catch(e => res.send({lightTheme: false}))
   })
   server.get('*', (req, res) => {
     
@@ -41,14 +49,14 @@ const middleware = (req, res, next) => {
     if(req.url === '/setTheme') {
       
     }
-    if(req.url === '/getTheme') {
-      redis.get("foo", function (err, result) {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log(result); // Promise resolves to "bar"
-        }
-      });
-    }
+    // if(req.url === '/getTheme') {
+    //   redis.get("foo", function (err, result) {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //       console.log(result); // Promise resolves to "bar"
+    //     }
+    //   });
+    // }
     next()
 }
