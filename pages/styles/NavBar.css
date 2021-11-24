@@ -1,6 +1,14 @@
 
 /* lightswitch */
 
+.lightswitch-div {
+  border-bottom: 0px solid var(--foreground-color1);
+  transition: all 0.1s linear;
+}
+.lightswitch-div:hover {
+  border-bottom: 4px solid var(--foreground-color1);
+  transition: all 0.1s linear;
+}
 .lightswitch {
     margin-top: 6px;
     transform: perspective(1000px) rotateY(0deg);
@@ -79,7 +87,13 @@
     align-items: center;
   }
   .nav-link {
-    margin: 0 20px;
+    padding: 20px 20px;
+    border-bottom: 0px solid #3DECE6;
+    cursor: pointer;
+    transition: all 0.1s linear;
+  }
+  .active-link {
+    border-bottom: 4px solid #3DECE6;
   }
   .nav-link > a {
     font-size: 20px;
@@ -89,6 +103,11 @@
   .nav-link:last-child {
     margin-right:40px;
   }
+  .nav-link:hover {
+    border-bottom: 4px solid #3DECE6;
+    transition: all 0.1s linear;
+  }
+  
 
 
 
