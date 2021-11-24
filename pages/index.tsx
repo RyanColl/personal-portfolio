@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import NavBar from '../components/NavBar'
 import { useEffect, useState } from 'react';
+import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
 const IndexPage = () => {
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
-    
     fetch("/setTheme", {
       method: "POST",
       headers: {
@@ -13,13 +13,18 @@ const IndexPage = () => {
       body: JSON.stringify({ lightTheme: !lightTheme }),
     });
     setLightTheme(!lightTheme);
+    if(lightTheme) changeThemeToDark()
+    if(!lightTheme) changeThemeToLight()
   }
   
   useEffect(() => {
     document.body.style.margin = '0';
     fetch('/getTheme').then(data => (data.json()))
       .then(data => {
-        if(data.lightTheme) setLightTheme(true)
+        if(data.lightTheme) {
+          setLightTheme(true)
+          changeThemeToLight()
+        }
       })
   }, []);
   return(

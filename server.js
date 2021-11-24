@@ -12,7 +12,7 @@ app.prepare()
   server.use(middleware)
   // sets the theme when button is pressed
   server.post("/setTheme", (req, res, next) => {
-    console.log(req.body.lightTheme)
+    // console.log(req.body.lightTheme)
     redis
       .set(`${req.ip}`, JSON.stringify({ lightTheme: req.body.lightTheme }))
       .then((s) => {
@@ -22,7 +22,7 @@ app.prepare()
   // gets the theme from cache/server
   server.get('/getTheme', (req, res) => {
       redis.get(`${req.ip}`).then(s => {
-        console.log(JSON.parse(s))
+        // console.log(JSON.parse(s))
         if(!JSON.parse(s)) return res.send({lightTheme: false})
         if(JSON.parse(s)) return JSON.parse(s)  
       })
