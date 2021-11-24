@@ -28,7 +28,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
 ]
   return (
     <div className="custom-navbar">
-      <NavItem whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
+      <NavItem  whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
         <div className="nav-logo">
           <img
             style={{ width: "77px", height: "77px" }}
@@ -37,7 +37,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
           />
         </div>
       </NavItem>
-      <div className="nav-right">
+      <motion.div className="nav-right">
         <NavItem className="nav-links">
           {linkArray.map((linkObj, i) => {
             return (
@@ -70,7 +70,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
         <motion.div className="hamburger-div" whileHover={{ scale: 1.05 }}>
           <Hamburger lightTheme={lightTheme} />
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

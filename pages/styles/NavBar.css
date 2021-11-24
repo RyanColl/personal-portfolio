@@ -94,6 +94,8 @@
   }
   .active-link {
     border-bottom: 4px solid #3DECE6;
+    transform: translateY(-8px) scale(1.07) translateZ(0px);
+    -webkit-transform: translateY(-8px) scale(1.07) translateZ(0px);
   }
   .nav-link > a {
     font-size: 20px;

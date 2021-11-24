@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import NavBar from '../components/NavBar'
+import NavBar from '../components/index/NavBar'
 import { useEffect, useState } from 'react';
 import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
+import IndexContent from '../components/index/Content';
 const IndexPage = () => {
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
@@ -35,6 +36,7 @@ const IndexPage = () => {
         lightSwitch={lightSwitch} 
         />
       </header>
+      <IndexContent />
     </div>
 )};
 
