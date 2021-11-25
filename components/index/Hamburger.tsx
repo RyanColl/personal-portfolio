@@ -1,8 +1,9 @@
 import React from "react";
 import {motion} from 'framer-motion'
-const Hamburger = ({lightTheme}: any) => {
+const Hamburger = ({lightTheme, active}: any) => {
     const [isOpen, setOpen] = React.useState(false)
     return(
+      <motion.div className='hamburger-menu'>
         <motion.div
         className={`container${isOpen?' active':''}`}
         onClick={()=>setOpen(!isOpen)}  
@@ -53,6 +54,10 @@ const Hamburger = ({lightTheme}: any) => {
         </g>
       </motion.svg>
     </motion.div>
+    <motion.div className={`hamburger-slider ${isOpen?'active':''}`}>
+      
+    </motion.div>
+  </motion.div>
     )
 }
 

@@ -109,14 +109,14 @@
     border-bottom: 4px solid #3DECE6;
     transition: all 0.1s linear;
   }
-  
 
 
 
 
 
 
-  @media only screen and (min-width: 600px) {
+
+  @media only screen and (min-width: 680px) {
     .hamburger-div {
       display: none;
       visibility: none;
@@ -124,7 +124,7 @@
       z-index: -10;
     }
   }
-  @media only screen and (max-width: 601px) {
+  @media only screen and (max-width: 680px) {
     .nav-links {
       display: none;
       visibility: none;

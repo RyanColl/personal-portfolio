@@ -68,7 +68,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
           </div>
         </motion.div>
         <motion.div className="hamburger-div" whileHover={{ scale: 1.05 }}>
-          <Hamburger lightTheme={lightTheme} />
+          <Hamburger active={active} lightTheme={lightTheme} />
         </motion.div>
       </motion.div>
     </div>
