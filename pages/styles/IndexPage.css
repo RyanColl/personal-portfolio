@@ -58,6 +58,7 @@
 }
 .index-buttons {
     margin-top: 50px;
+    
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -99,7 +100,7 @@
         flex-direction: column;
     }
     .welcome-content > div {
-        width: 325px;
+        width: 100%;
     }
     .word-wrapper {
         margin-top: 0;
@@ -107,6 +108,9 @@
     }
     .index-button-div {
         margin: 0 0 50px 0px;
+    }
+    .index-buttons {
+        margin-left: 20px;
     }
 }
 
