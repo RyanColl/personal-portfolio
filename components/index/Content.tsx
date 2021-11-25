@@ -7,10 +7,16 @@ const IndexWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: clamp(350px, 90%, 800px);
+    width: 800px; 
+    @media only screen and (max-width: 900px) {
+        width: 90%;
+    }
 `
-const ImageContainer = styled.div`
-    display: inherit;
+const ImageContainer = styled(motion.div)`
+    margin: 12px;
+    @media only screen and (max-width: 500px) {
+        margin: 0;
+    }
 `
 const NameSpan = styled.h1`
     color: #3AF7F0;
@@ -22,14 +28,14 @@ function IndexContent() {
         <IndexWrapper>
             <div className="welcome-container">
                 <ImageContainer><img src='./comp1.png' className='desk-img' /></ImageContainer>
-                <div className='welcome-content'>
+                <motion.div className='welcome-content'>
                     <div className='word-wrapper'>
                         <div className='name-span'>{'<Ryan>'}</div>
                         {/* <span className='fswd'>Full Stack Web Developer</span> */}
                         <div className='name-span'>{'</Ryan>'}</div>
                     </div>
                     
-                </div>
+                </motion.div>
             </div>
         </IndexWrapper>
     )
