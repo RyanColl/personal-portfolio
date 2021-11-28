@@ -32,8 +32,8 @@ function IndexContent() {
                 <motion.div className='welcome-content'>
                     <motion.div className='word-wrapper'>
                         <motion.div 
-                        initial={{y: 50}} 
-                        animate={{y:0}} 
+                        initial={{y: 50, scale: 0}} 
+                        animate={{y:0, scale: 1}} 
                         transition={{delay: 2.4}}  
                         className='name-span'>{'<Ryan>'}</motion.div>
                         <motion.span 
@@ -42,8 +42,8 @@ function IndexContent() {
                         animate={{scale: 1}}
                         className='fswd'>Full Stack Web Developer</motion.span>
                         <motion.div 
-                        initial={{y: -50}} 
-                        animate={{y:0}} 
+                        initial={{y: -50, scale: 0}} 
+                        animate={{y:0, scale: 1}} 
                         transition={{delay: 2.4}} 
                         className='name-span'>{'</Ryan>'}</motion.div>
                         <motion.span
@@ -53,8 +53,8 @@ function IndexContent() {
                         className='under-msg'>Creating a brighter future through coding</motion.span>
                     </motion.div>
                     <motion.div className="index-buttons">
-                        <IndexButton text={'Projects'} style={{backgroundColor: '#F13EA8'}} /> 
-                        <IndexButton text={'Blog'} style={{backgroundColor: '#3AF7F0'}} /> 
+                        <IndexButton delay={3.2} text={'Projects'} style={{backgroundColor: '#F13EA8'}} /> 
+                        <IndexButton delay={3.4} text={'Blog'} style={{backgroundColor: '#3AF7F0'}} /> 
                     </motion.div>
                     
                 </motion.div>

@@ -5,6 +5,9 @@ import { changeThemeToDark, changeThemeToLight } from '../services/document.serv
 import IndexContent from '../components/index/Content';
 import { motion } from 'framer-motion';
 import Studying from '../components/index/Studying';
+import Interests from '../components/index/Interests';
+import Footer from '../components/Footer/Footer';
+import ScrollButton from '../components/Scroll/ScrollButton';
 const IndexPage = () => {
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
@@ -44,7 +47,10 @@ const IndexPage = () => {
       </motion.header>
       <IndexContent />
       <Studying />
+      <Interests />
+      <Footer lightTheme={lightTheme} />
     </motion.div>
+    {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}
   </>
 )};
 

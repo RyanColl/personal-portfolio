@@ -1,0 +1,16 @@
+{
+    "interests":[
+        {"text": "Scientific Literature", "color": "#1771C5", "link": "https://www.scientificamerican.com/"},
+        {"text": "Front-End Development", "color": "#1771C5", "link": "https://reactjs.org/"},
+        {"text": "Quantum Physics", "color": "#1771C5", "link": "https://qiskit.org/"}, 
+        {"text": "System Architecture", "color": "#1771C5", "link": "https://developer.mozilla.org/en-US/docs/Glossary/MVC"},
+        {"text": "Design", "color": "#1771C5", "link": "https://www.figma.com/"},
+        {"text": "Machine Learning", "color": "#3AF6EF", "link": "https://www.ibm.com/uk-en/cloud/learn/machine-learning"},
+        {"text": "Philosophy", "color": "#3AF6EF", "link": "http://james-allen.in1woord.nl/?text=as-a-man-thinketh"},
+        {"text": "Privacy", "color": "#3AF6EF", "link": "https://dl.eusset.eu/handle/20.500.12015/3159"},
+        {"text": "Security", "color": "#3AF6EF", "link": "https://www.sciencedirect.com/science/article/abs/pii/S0045790618300508"},
+        {"text": "Astronomy", "color": "#F13EA8", "link": "https://www.sciencedaily.com/releases/2021/11/211115123459.htm"},
+        {"text": "Algorithms", "color": "#F13EA8", "link": "https://phys.org/news/2021-11-newly-quantum-algorithm-full-configuration.html"},
+        {"text": "Networking", "color": "#F13EA8", "link": "https://www.linkedin.com/in/rcollicutt-react-developer/"}
+    ]
+}

@@ -1,9 +1,12 @@
 const express = require('express')
 const next = require('next')
 const {redis} = require('./lib/redis.ts')
+const fs = require('fs').promises
+const path = require('path')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+
     
 app.prepare()
 .then(() => {
@@ -30,6 +33,12 @@ app.prepare()
         return res.send({lightTheme: result.lightTheme})
       }).catch(e => res.send({lightTheme: false}))
   })
+  server.get('/interests', (req, res) => {
+    fs.readFile(path.join(__dirname, '/interests.json'), 'utf-8')
+      .then(i => {
+        return res.send({interests: JSON.parse(i)})
+      })
+  })
   server.get('*', (req, res) => {
     
     return handle(req, res)
@@ -46,9 +55,15 @@ app.prepare()
 })
 
 const middleware = (req, res, next) => {
-    if(req.url === '/setTheme') {
-      
-    }
+    next()
+}
+
+
+
+
+
+/* REDIS EXAMPLE */
+
     // if(req.url === '/getTheme') {
     //   redis.get("foo", function (err, result) {
     //     if (err) {
@@ -58,5 +73,3 @@ const middleware = (req, res, next) => {
     //     }
     //   });
     // }
-    next()
-}

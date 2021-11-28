@@ -7,6 +7,7 @@
   --background-color2: #1F2424;
   --foreground-color1: white;
   --foreground-color2: white;
+  --border-color: white;
 }
 
 
@@ -42,7 +43,7 @@
 }
 .custom-navbar {
   display: flex;
-  padding: 100px 2rem .25rem 2rem;
+  padding: 60px 2rem .25rem 2rem;
   flex-direction:row;
   justify-content: space-between;
   align-items: center;
@@ -62,4 +63,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.scroll-button {
+  position: fixed;
+  right: 3em;
+  bottom: 3em;
+  width: 37.5px;
+  height: 37.5px;
+  background-color: var(--background-color2);
+  border-radius: 4px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+.scroll-button:hover {
+  cursor: pointer;
+  transition: all 0.5s;
 }

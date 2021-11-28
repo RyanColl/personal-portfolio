@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Mountains from './Mountains'
 function Studying() {
     const h1Text = {
         p1: 'Studying',
@@ -7,21 +8,39 @@ function Studying() {
         p3: 'at BCIT has taught me',
     }
     return (
+        <>
         <motion.div className='studying-wrapper'>
-            <motion.h1>{h1Text.p1}<span id="web-dev">{` ${h1Text.p2} `}</span>{h1Text.p3}</motion.h1>
-            <motion.div className="arms-div">
-                <motion.div className="arms-inner-div">
-                    <img style={{width: '90%', height: '90%'}} src={'./Bcit.jpeg'} />
+            <motion.h1 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+                visible: { opacity: 1, x: 0 },
+                hidden: { opacity: 0, x: -150}
+            }}>
+                <span>{h1Text.p1}</span>
+                <span>{` ${h1Text.p2} `}</span>
+                <span>{h1Text.p3}</span>
+            </motion.h1>
+            <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            variants={{
+                visible: { opacity: 1, x: 0 },
+                hidden: { opacity: 0, x: 150}
+            }}
+            className="arms-div">
+                <motion.div whileHover={{scale: 1.025}} transition={{duration: 0.3}} className="arms-inner-div">
+                    <motion.img whileHover={{scale: 1.025}} transition={{duration: 0.3}} style={{width: '90%', height: '90%'}} src={'./Bcit.jpeg'} />
                 </motion.div>
             </motion.div>
-            <motion.div className="mountains">
-
-            </motion.div>
+            
         </motion.div>
+        <Mountains />
+        </>
     )
-}
-const h1Styles = {
-    color: '#3AF6EF',
-    fontSize: 32,
 }
 export default Studying

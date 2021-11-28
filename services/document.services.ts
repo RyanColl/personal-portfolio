@@ -13,3 +13,7 @@ export const changeThemeToLight = () => {
     document.documentElement.style.setProperty('--foreground-color1', '#2E2E2E');
     document.documentElement.style.setProperty('--foreground-color2', '#1F2424');
 }
+
+export const changeBorderColor = (color: string) => {
+    document.documentElement.style.setProperty('--border-color', color);
+}
