@@ -114,3 +114,53 @@
     }
 }
 
+
+
+
+
+
+/* Studying Section */
+
+
+
+.studying-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 475px; 
+    
+}
+
+.studying-wrapper > h1 {
+    text-align: center;
+    color: var(--foreground-color2);
+    font-size: 32;
+    transition: all 0.5s;
+}
+#web-dev {
+    color: '#3AF6EF';
+}
+
+@media only screen and (max-width: 600px) {
+    .studying-wrapper {
+        width: 350px;
+    }
+    .studying-wrapper > h1 {
+        font-size: 24;
+    }
+};
+.arms-div {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arms-inner-div {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

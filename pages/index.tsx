@@ -3,6 +3,8 @@ import NavBar from '../components/index/NavBar'
 import { useEffect, useState } from 'react';
 import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
 import IndexContent from '../components/index/Content';
+import { motion } from 'framer-motion';
+import Studying from '../components/index/Studying';
 const IndexPage = () => {
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
@@ -33,16 +35,37 @@ const IndexPage = () => {
     <Head>
       <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
     </Head>
-    <div className="App">
-      <header className="App-header">
-        <NavBar 
+    <motion.div className="App">
+      <motion.header className="App-header">
+        <NavBar
         lightTheme={lightTheme} 
         lightSwitch={lightSwitch} 
         />
-      </header>
+      </motion.header>
       <IndexContent />
-    </div>
+      <Studying />
+    </motion.div>
   </>
 )};
 
 export default IndexPage;
+
+const container = {
+  hidden: { rotate: 0 },
+  show: {
+      rotate: 0,
+      transition: {
+          staggerChildren: 0.1,
+          delayChildren: 3,
+      },
+  },
+}
+const itemA = {
+  hidden: { scale: 0, top: 100 },
+  show: { scale: 1, top: 30 },
+}
+
+const itemB = {
+  hidden: { scale: 0, top: 200 },
+  show: { scale: 1, top: 80 },
+}

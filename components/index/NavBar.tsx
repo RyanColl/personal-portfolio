@@ -31,9 +31,16 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
     },
 ]
   return (
-    <motion.div variants={container} style={{ zIndex: 10 }} className="custom-navbar">
-      <NavItem whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
-        <div className="nav-logo">
+    <motion.div 
+    animate={{x:0}}
+    initial={{x: '-100vh'}}
+    transition={{duration: 0.5, type: 'spring'}}
+    style={{ zIndex: 10 }} className="custom-navbar">
+      <NavItem
+        animate={{x: 0, opacity: 1}}
+        initial={{x: '-10vw', opacity: 0}}
+       whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
+        <div style={{cursor: 'pointer'}} className="nav-logo">
           <img
             style={{ width: "77px", height: "77px" }}
             className="logo"
@@ -46,6 +53,9 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
           {linkArray.map((linkObj, i) => {
             return (
               <motion.div
+                animate={{x: 0, opacity: 1}}
+                initial={{x: '-10vw', opacity: 0}}
+                transition={{delay: (0.2+0.2*i)}}
                 whileHover={{ translateY: -8, scale: 1.07 }}
                 key={`nav-link${i}`}
                 className={`nav-link ${linkObj.active && "active-link"}`}
@@ -58,6 +68,9 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
           })}
         </NavItem>
         <motion.div
+          animate={{x: 0, opacity: 1}}
+          initial={{x: '-10vw', opacity: 0}}
+          transition={{delay: 1.2}}
           whileHover={{ scale: 1.2, translateY: -8 }}
           whileTap={{ scale: 0.9 }}
           className="lightswitch-div"
@@ -103,7 +116,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
     </motion.div>
   );
 }
-export default NavBar;
+export default motion(NavBar);
 
 const container = {
   show: {
