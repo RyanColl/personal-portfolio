@@ -18,7 +18,7 @@ function ScrollButton({lightTheme}: any) {
         transition={{duration: 0.2, ease: 'linear'}}
         onClick={Scroll.animateScroll.scrollToTop}
         className="scroll-button">
-            <Icon icon="eva:arrow-up-fill" color={lightTheme?"#1F2424":"white"} width="32" />
+            <Icon className="arrow-up" icon="eva:arrow-up-fill" color={lightTheme?"#1F2424":"white"} width="32" />
         </motion.div>
     )
 }

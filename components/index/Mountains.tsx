@@ -9,7 +9,7 @@ function Mountains() {
                 <motion.img 
                 whileInView={{opacity: 1, scale: 1}}
                 initial={{opacity: 0, scale: 0}} 
-                transition={{delay: 0.5, duration: 2.5}}
+                transition={{delay: 0.5, type: 'spring',}}
                 viewport={{ once: true }}
                 className="mountains" src={'./mountains.svg'} alt="figma-community-mountains" />
             </motion.div>

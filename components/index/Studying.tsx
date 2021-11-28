@@ -14,7 +14,7 @@ function Studying() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ type:"spring", stiffness: 50 }}
             variants={{
                 visible: { opacity: 1, x: 0 },
                 hidden: { opacity: 0, x: -150}
@@ -27,7 +27,7 @@ function Studying() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, type:"spring" }}
             variants={{
                 visible: { opacity: 1, x: 0 },
                 hidden: { opacity: 0, x: 150}
