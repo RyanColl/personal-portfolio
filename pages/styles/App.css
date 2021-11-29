@@ -83,15 +83,16 @@
   transition: all 0.5s;
 }
 .scroll-button:hover .arrow-up {
-  animation: scrollButtonAnimate 2s infinite linear;
+  animation: scrollButtonAnimate 2s infinite ease-out;
 }
 @keyframes scrollButtonAnimate {
   0% {scale: 1}
   15% {scale: 1.25}
   25% {transform: translateY(0);}
-  45% {transform: translateY(-20px);}
-  60% {transform: translateY(0);}
-  75% {transform: translateY(-20px);}
-  90% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  50% {transform: translateY(0);}
+  60% {transform: translateY(-10px);}
+  70% {transform: translateY(0);}
+  80% {scale: 1}
   100% {scale: 1}
 }
