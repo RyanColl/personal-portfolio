@@ -1,5 +1,71 @@
 .projects-page {
     width: 800px;
+    margin-bottom: 60px;
+}
+.projects {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.project {
+    height: 360px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    
+}
+.project-image {
+    background-color: white;
+    height: 205px;
+    z-index: 1;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    overflow: hidden;
+}
+.project-image > img {
+    height: 100%;
+}
+
+.project-description {
+    padding: 0 36px;
+    background-color:#2e2e2e;
+    z-index: 2;
+    width: 80%;
+    height: 158px;
+    margin-top: -10px;
+    border-radius: 6px;
+    border: 1px solid white;
+    overflow: hidden;
+}
+.project-description > h1 {
+    font-size: 22px;
+    color: white;
+}
+.project-description > p {
+    font-size: 14px;
+    color: white;
+}
+.project-description > a {
+    text-decoration: none;
+}
+.project-description > a > span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px;
+}
+.project-description  > span > svg{
+    margin-top: 3px;
+    margin-left: 4px;
+}
+.learn-more {
+    color: #32a2c4;
+    font-size: 20px;
 }
 @media only screen and (max-width: 900px) {
     .projects-page {

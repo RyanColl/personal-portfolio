@@ -1,15 +1,18 @@
 
 import { motion } from 'framer-motion';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Header = ({text, lightTheme}: {text: string, lightTheme: boolean}) => {
+    const [width, setWidth] = useState(350)
+    useEffect(() => {
+        console.log(window.innerWidth)
+        setWidth(window.innerWidth)
+    }, [])
     return (
-        <motion.div className="header-styles">
-            <motion.h1 className="large-header">{text}</motion.h1>
-            <motion.svg width="200px" height="200px" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <line x1="0" y1="0" x2={`${200}`} y2="0" style={{stroke: lightTheme?'black':'white'}}/>
-            </motion.svg>
-        </motion.div>
-    )
+      <motion.div className="header-styles">
+        <motion.h1 className="large-header">{text}</motion.h1>
+        <motion.hr style={{width: '100%', color: lightTheme?'#1F2424':'white'}}></motion.hr>
+      </motion.div>
+    );
 }
 export default Header;

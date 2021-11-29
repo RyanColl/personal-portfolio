@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Project Kalm",
+        "description": "Project Kalm is a browser app that empowers you to feel better about your emotions by allowing you to complete a range of activities based on your current mood.",
+        "image": "./kalm_img.svg",
+        "link": "https://kalmapp.ca"
+    },
+    {
+        "title": "Enviro View",
+        "description": "Enviro View is a browser app aimed at making more available the data sets provided by the US Government around the carbon footprint of the 50 states.",
+        "image": "./transportation.png",
+        "link": "https://enviroview.web.app"
+    }
+]

@@ -39,6 +39,12 @@ app.prepare()
         return res.send({interests: JSON.parse(i)})
       })
   })
+  server.get('/getProjects', (req, res) => {
+    fs.readFile(path.join(__dirname, '/projects.json'), 'utf-8')
+      .then(i => {
+        return res.send({projects: JSON.parse(i)})
+      })
+  })
   server.get('*', (req, res) => {
     
     return handle(req, res)
