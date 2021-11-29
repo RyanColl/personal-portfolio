@@ -1,0 +1,62 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 55px;
+    background-color: var(--background-color1);
+}
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon {
+    margin: 10px;
+}
+.icon:hover {
+    animation: animateLink 2s ease-out infinite;
+}
+
+@keyframes animateLink {
+    0% {transform: scale(1);}
+    15% {transform: scale(1);}
+    25% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    50% {transform: translateY(0);}
+    60% {transform: translateY(-10px);}
+    70% {transform: translateY(0);}
+    80% {transform: scale(1);}
+    100% {transform: scale(1);}
+  }
+
+.copy-message {
+    position: fixed;
+    left: calc(50% - 100px);
+    top: calc(50% - 30px);
+    width: 240px;
+    height: 60px;
+    border: 1px solid grey;
+    background-color: var(--background-color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--foreground-color2);
+    animation: disappear 3s linear;
+    opacity: 0;
+    z-index: 10;
+}
+@keyframes disappear {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.brand {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand > span {
+    color: var(--foreground-color2);
+    font-family: 'Play', sans-serif;
+}

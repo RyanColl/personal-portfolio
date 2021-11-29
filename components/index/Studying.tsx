@@ -34,7 +34,9 @@ function Studying() {
             }}
             className="arms-div">
                 <motion.div whileHover={{scale: 1.025}} transition={{duration: 0.3}} className="arms-inner-div">
-                    <motion.img whileHover={{scale: 1.025}} transition={{duration: 0.3}} style={{width: '90%', height: '90%'}} src={'./Bcit.jpeg'} />
+                    <motion.a href="https://www.heraldry-wiki.com/heraldrywiki/wiki/British_Columbia_Institute_of_Technology">
+                        <motion.img whileHover={{scale: 1.025}} transition={{duration: 0.3}} style={{width: '90%', height: '90%'}} src={'./Bcit.jpeg'} />
+                    </motion.a>
                 </motion.div>
             </motion.div>
             

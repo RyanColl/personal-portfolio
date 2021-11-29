@@ -66,33 +66,3 @@
 }
 
 
-.scroll-button {
-  position: fixed;
-  right: 3em;
-  bottom: 3em;
-  width: 37.5px;
-  height: 37.5px;
-  background-color: var(--background-color2);
-  border-radius: 4px;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-}
-.scroll-button:hover {
-  cursor: pointer;
-  transition: all 0.5s;
-}
-.scroll-button:hover .arrow-up {
-  animation: scrollButtonAnimate 2s infinite ease-out;
-}
-@keyframes scrollButtonAnimate {
-  0% {scale: 1}
-  15% {scale: 1.25}
-  25% {transform: translateY(0);}
-  40% {transform: translateY(-10px);}
-  50% {transform: translateY(0);}
-  60% {transform: translateY(-10px);}
-  70% {transform: translateY(0);}
-  80% {scale: 1}
-  100% {scale: 1}
-}

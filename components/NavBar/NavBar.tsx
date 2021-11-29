@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import styled from 'styled-components'
-import Hamburger from './Hamburger';
+import Hamburger from '../index/Hamburger';
 import Link from 'next/link'
 const openMenu = {translateX: 205, height: 100}
 const closeMenu = {translateX: 0, height: 500}
@@ -60,7 +60,7 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
                 key={`nav-link${i}`}
                 className={`nav-link ${linkObj.active && "active-link"}`}
               >
-                <Link href={`/${linkObj.link.toLowerCase()}`}>
+                <Link href={`/${linkObj.link==="Home"?'':linkObj.link.toLowerCase()}`}>
                   {linkObj.link}
                 </Link>
               </motion.div>

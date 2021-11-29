@@ -1,0 +1,8 @@
+.projects-page {
+    width: 800px;
+}
+@media only screen and (max-width: 900px) {
+    .projects-page {
+        width: 80%;
+    }
+}
