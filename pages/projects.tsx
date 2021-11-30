@@ -14,7 +14,11 @@ const ProjectPage = ({lightTheme}: {lightTheme: boolean}) => {
             <Header text='Projects' lightTheme={lightTheme} />
             <motion.div className="projects">
                 {projects.length>0 && projects.map((project, i) => {
-                    return <Project i={i} project={project} />
+                    return (
+                        <motion.div style={{margin: 0, padding: 0}} key={i}>
+                            <Project i={i} project={project} />
+                        </motion.div>
+                    );
                 })}
             </motion.div>
         </motion.div>

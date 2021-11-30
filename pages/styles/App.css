@@ -10,7 +10,16 @@
   --border-color: white;
 }
 
-
+html {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background-color1);
+}
+body {
+  width: 100%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

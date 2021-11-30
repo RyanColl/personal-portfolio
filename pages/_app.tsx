@@ -13,8 +13,10 @@ import { useEffect, useState } from 'react';
 import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
 import { getTheme, setTheme } from '../services/fetch.services';
 import { motion } from 'framer-motion';
+
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
+ 
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
     setTheme(!lightTheme) // server fetch

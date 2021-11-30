@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin: 80px 0;
 }
 .project {
     height: 360px;
@@ -14,7 +15,16 @@
     display: flex;
     flex-direction: column;
     border-radius: 6px;
+    margin-bottom: 60px;
+}
+.projects > div {
+    transform: scale(1);
+    transition: transform 0.2s ease-out;
     
+}
+.projects > div:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-out;
 }
 .project-image {
     background-color: white;
@@ -27,7 +37,7 @@
     border: 1px solid black;
     overflow: hidden;
 }
-.project-image > img {
+.project-image > a > img {
     height: 100%;
 }
 
@@ -59,16 +69,42 @@
     align-items: center;
     font-size: 18px;
 }
-.project-description  > span > svg{
+.project-description > a > span > svg {
     margin-top: 3px;
     margin-left: 4px;
+    
 }
 .learn-more {
     color: #32a2c4;
     font-size: 20px;
 }
+.learn-more:hover > svg {
+    animation: arrowRightAnimation 2s ease-out infinite 0.5s;
+}
 @media only screen and (max-width: 900px) {
     .projects-page {
         width: 80%;
     }
+    .projects {
+        justify-content: center;
+    }
+    .project {
+        margin: 0 0 2em 0;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .projects > div {
+        transform: scale(0.9);
+    }
+    .projects > div:hover {
+        transform: scale(1);
+    }
+}
+@keyframes arrowRightAnimation {
+    0% {transform: translateX(0px);}
+    10% {transform: translateX(10px);}
+    20% {transform: translateX(0px);}
+    30% {transform: translateX(10px);}
+    40% {transform: translateX(0px);}
+    100% {transform: translateX(0px);}
 }

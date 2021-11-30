@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion';
 import styled from 'styled-components'
 import Hamburger from '../index/Hamburger';
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 const openMenu = {translateX: 205, height: 100}
 const closeMenu = {translateX: 0, height: 500}
+const initial = {home: false, projects: false, blog: false, about: false}
 const NavItem = styled(motion.div)`
   margin-right: 10px;
   z-index: 12;
 `;
-const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
-  const [active, setActive] = React.useState(activeClass || {home: true, projects: false, blog: false, about: false})
+const NavBar = ({lightTheme, lightSwitch}: any) => {
+  const router = useRouter()
+  const [active, setActive] = React.useState({home: true, projects: false, blog: false, about: false})
   const [isOpen, setOpen] = React.useState(false)
   const linkArray = [
     {
@@ -30,6 +33,13 @@ const NavBar = ({lightTheme, lightSwitch, activeClass}: any) => {
       active: active.about
     },
 ]
+useEffect(() => {
+  let route = router.route.replace('/', '')
+  if(route==='projects') setActive({...initial, projects: true})
+  if(route==='blog') setActive({...initial, blog: true})
+  if(route==='about') setActive({...initial, about: true})
+  if(route==='') setActive({...initial, home: true})
+}, [router.route])
   return (
     <motion.div 
     animate={{x:0}}

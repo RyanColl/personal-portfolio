@@ -10,5 +10,11 @@
         "description": "Enviro View is a browser app aimed at making more available the data sets provided by the US Government around the carbon footprint of the 50 states.",
         "image": "./transportation.png",
         "link": "https://enviroview.web.app"
+    },
+    {
+        "title": "Movie App",
+        "description": "Movie App is a practice app using Angular and a good demonstration of my skills. Using IMBD's movie API, I display to you a list of recent movies with a genre dropdown.",
+        "image": "./moviesapp.jpg",
+        "link": "https://complabs2.web.app/"
     }
 ]

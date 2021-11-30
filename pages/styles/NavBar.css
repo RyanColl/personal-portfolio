@@ -106,6 +106,7 @@
     -webkit-transform: translateY(-8px) scale(1.07) translateZ(0px);
   }
   .nav-link > a {
+    padding: 20px 0px;
     font-size: 20px;
     text-decoration: none;
     color: var(--foreground-color1)
