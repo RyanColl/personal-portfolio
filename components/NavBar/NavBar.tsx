@@ -115,7 +115,7 @@ useEffect(() => {
                 key={`nav-link${i}`}
                 className={`nav-link ${linkObj.active && "active-link"}`}
               >
-                <Link href={`/${linkObj.link.toLowerCase()}`}>
+                <Link href={`/${linkObj.link==="Home"?'':linkObj.link.toLowerCase()}`}>
                   {linkObj.link}
                 </Link>
               </motion.div>

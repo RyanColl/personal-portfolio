@@ -15,17 +15,18 @@
     margin: 10px;
 }
 .icon:hover {
-    animation: animateLink 2s ease-out infinite;
+    transform: translateY(-10px);
+    cursor: pointer;
 }
 
-@keyframes animateLink {
+/* @keyframes animateLink {
     0% {transform: translateY(0px);}
     10% {transform: translateY(-10px);}
     20% {transform: translateY(0);}
     30% {transform: translateY(-10px);}
     40% {transform: translateY(0px);}
     100% {transform: translateY(0px);}
-  }
+  } */
 
 .copy-message {
     position: fixed;

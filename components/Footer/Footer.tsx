@@ -22,7 +22,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                         alert(e)
                     })
             },
-            Link: ({className = ''}: any) => <Icon className={className} icon="whh:emailexport" color={lightTheme?darkColor:lightColor} width="32" />
+            Link: ({className = ''}: any) => <Icon className={className} icon="simple-icons:gmail" color={lightTheme?darkColor:lightColor} width="32" />
         },
         {
             name: 'github',
@@ -35,6 +35,12 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
             onClick: () => { },
             link: 'https://www.linkedin.com/in/rcollicutt-react-developer/',
             Link: ({className = ''}: any) => <Icon className={className} icon="fa:linkedin-square" color={lightTheme?darkColor:lightColor} width="32" />
+        },
+        {
+            name: 'spotify',
+            onClick: () => { },
+            link: 'https://open.spotify.com/user/ryancollicutt22',
+            Link: ({className = ''}: any) => <Icon className={className} icon="akar-icons:spotify-fill" color={lightTheme?darkColor:lightColor} width="32" />
         }
     ]
     
@@ -45,7 +51,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                 <motion.div className="icon-container">
                     {icons.map(({name, link, onClick, Link}: any, i: number) => {     
                             return(
-                                <motion.a key={i} id={name} onClick={onClick} href={link===''?`#${name}`:link} className={name}>
+                                <motion.a key={i} id={name} onClick={onClick} href={link===''?undefined:link} className={name}>
                                     <motion.div>
                                         <Link className={'icon'} />
                                     </motion.div>

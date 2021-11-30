@@ -2,8 +2,9 @@ import './styles/App.css';
 import './styles/NavBar.css';
 import './styles/IndexPage.css'
 import './styles/Footer.css';
-import './styles/component.styles.css'
-import './styles/ProjectsPage.css'
+import './styles/component.styles.css';
+import './styles/ProjectsPage.css';
+import './styles/About.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import NavBar from '../components/NavBar/NavBar';
@@ -13,10 +14,10 @@ import { useEffect, useState } from 'react';
 import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
 import { getTheme, setTheme } from '../services/fetch.services';
 import { motion } from 'framer-motion';
-
+import { useRouter } from 'next/router'
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
- 
+  const router = useRouter()
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
     setTheme(!lightTheme) // server fetch
@@ -34,6 +35,11 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
         }
       })
   }, [])
+  const [currentRoute, setCurrentRoute] = useState('')
+  useEffect(() => {
+    let route = router.route.replace('/', '')
+    setCurrentRoute(route)
+  }, [router.route])
   return (
     <>
       <Head>
@@ -48,7 +54,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
         </motion.header>
         <Component lightTheme={lightTheme} {...pageProps} />
       </motion.div>
-      <Footer lightTheme={lightTheme} />
+      {currentRoute!=='about' && <Footer lightTheme={lightTheme} />}
       {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}
     </>
   );
