@@ -1,8 +1,9 @@
 
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
+import SearchBar from '../blog/SearchBar';
 
-const Header = ({text, Search = () => <span></span>}: {text: string, Search: () => JSX.Element}) => {
+const Header = ({text, search}: {text: string, search: boolean}) => {
     const [width, setWidth] = useState(350)
     useEffect(() => {
         console.log(window.innerWidth)
@@ -17,7 +18,7 @@ const Header = ({text, Search = () => <span></span>}: {text: string, Search: () 
             )
           })}
         </motion.h1>
-        <Search />
+        {search && <SearchBar />}
         <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
       </motion.div>
     );

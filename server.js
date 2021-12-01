@@ -5,14 +5,19 @@ const fs = require('fs').promises
 const path = require('path')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
+const cors = require('cors');
 const handle = app.getRequestHandler()
-
-    
+const PORT = process.env.PORT || 3000
+console.log('next server started')
 app.prepare()
 .then(() => {
   const server = express()
+  console.log('express server started')
   server.use(express.json()) // need this to receive req.body
   server.use(middleware)
+  // server.use(express.static('build'))
+  server.use(cors());
+  console.log(dev)
   // sets the theme when button is pressed
   server.post("/setTheme", (req, res, next) => {
     // console.log(req.body.lightTheme)
@@ -50,9 +55,9 @@ app.prepare()
     return handle(req, res)
   })
   
-  server.listen(3000, (err) => {
+  server.listen(PORT, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log(`> Ready on port: ${PORT}`)
   })
 })
 .catch((ex) => {

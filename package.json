@@ -2,16 +2,19 @@
   "private": true,
   "scripts": {
     "next": "next dev",
-    "dev": "node server.js",
+    "dev": "next start",
     "build": "next build",
-    "start": "next start",
-    "serve": "npm run build && npm run start"
+    "start": "node server.js",
+    "serve": "npm run build && npm run start",
+    "proto-build": "next build && next export -o build",
+    "host": "firebase deploy --only hosting:rcoll-dev"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
     "@heroicons/react": "^1.0.5",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "framer-motion": "^5.3.0",
     "ioredis": "^4.23.0",

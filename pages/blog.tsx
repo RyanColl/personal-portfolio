@@ -7,7 +7,7 @@ const blog = () => {
     const [postsTitle, setPostsTitle] = useState('All Posts')
     return (
         <motion.div className="blog-wrapper">
-            <Header Search={SearchBar} text={postsTitle} />
+            <Header search={true} text={postsTitle} />
             <motion.div className="posts">
 
             </motion.div>
