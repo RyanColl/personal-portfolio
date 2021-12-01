@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
+import { getInterests } from '../../services/fetch.services'
 import Interest from './Interest'
 
 function Interests() {
@@ -10,8 +11,11 @@ function Interests() {
         p3: 'are',
     }
     useEffect(() => {
-        fetch('/interests').then(i => i.json())
-            .then(i => setInterests(i.interests.interests))
+        // fetch('/interests').then(i => i.json())
+        //     .then(i => setInterests(i.interests.interests))
+        getInterests()
+          .then((entry: any) => setInterests(entry.fields.interests))
+          .catch((e: any) => console.log(e))
     }, [])
     return (
       <motion.div className="interests-wrapper">

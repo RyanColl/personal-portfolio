@@ -1,4 +1,4 @@
-
+import { getInterests as interests, getProjects as projects } from "./contentful.services";
 export const setTheme = (lightTheme: boolean) => {
     fetch("/setTheme", {
         method: "POST",
@@ -14,4 +14,11 @@ export const getTheme = (): Promise<boolean> => {
       .then(data => {
         return data.lightTheme
       })
+}
+
+export const getInterests = () => {
+  return interests().then((entry: any) => entry).catch((e: any) => undefined)
+}
+export const getProjects = () => {
+  return projects().then((entry: any) => entry).catch((e: any) => undefined)
 }
