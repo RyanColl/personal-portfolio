@@ -5,6 +5,7 @@ import './styles/Footer.css';
 import './styles/component.styles.css';
 import './styles/ProjectsPage.css';
 import './styles/About.css';
+import './styles/BlogPage.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import NavBar from '../components/NavBar/NavBar';
@@ -52,7 +53,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
           lightSwitch={lightSwitch} 
           /> 
         </motion.header>
-        <Component lightTheme={lightTheme} {...pageProps} />
+        <Component {...pageProps} />
       </motion.div>
       {currentRoute!=='about' && <Footer lightTheme={lightTheme} />}
       {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}

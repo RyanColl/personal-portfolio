@@ -3,10 +3,10 @@ import React from 'react'
 import Links from '../components/about/Links';
 import MyDetails from '../components/about/MyDetails';
 import Header from '../components/Header/Header'
-const about = ({lightTheme}: {lightTheme: boolean}) => {
+const about = () => {
     return (
       <motion.div className="about-page">
-        <Header lightTheme={lightTheme} text="About" />
+        <Header text="About" />
         <motion.div className="about">
           <motion.div className="my-details">
             <motion.div className="my-image">

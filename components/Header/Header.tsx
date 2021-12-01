@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
 
-const Header = ({text, lightTheme}: {text: string, lightTheme: boolean}) => {
+const Header = ({text, Search = () => <span></span>}: {text: string, Search: () => JSX.Element}) => {
     const [width, setWidth] = useState(350)
     useEffect(() => {
         console.log(window.innerWidth)
@@ -17,7 +17,8 @@ const Header = ({text, lightTheme}: {text: string, lightTheme: boolean}) => {
             )
           })}
         </motion.h1>
-        <motion.hr initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}} style={{width: '100%', color: lightTheme?'#1F2424':'white'}}></motion.hr>
+        <Search />
+        <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
       </motion.div>
     );
 }

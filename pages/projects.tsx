@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
 import Project from '../components/projects/Project'
 
-const ProjectPage = ({lightTheme}: {lightTheme: boolean}) => {
+const ProjectPage = () => {
     const [projects, setProjects] = useState([{title: '', description: '', image: '', link: ''}])
     useEffect(() => {
         fetch('/getProjects').then(i => i.json())
@@ -11,7 +11,7 @@ const ProjectPage = ({lightTheme}: {lightTheme: boolean}) => {
     }, [])
     return (
         <motion.div className="projects-page">
-            <Header text='Projects' lightTheme={lightTheme} />
+            <Header text='Projects'/>
             <motion.div className="projects">
                 {projects.length>0 && projects.map((project, i) => {
                     return (

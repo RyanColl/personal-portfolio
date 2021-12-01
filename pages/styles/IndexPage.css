@@ -194,10 +194,41 @@
     flex-direction: column;
 }
 .summit-text {
-    font-size: 24px;
     color: var(--foreground-color2);
     margin-top: 1em;
+    border-right: 2px solid #3AF6EF;
+    overflow: hidden;
+    animation: moveRight 2s steps(30), borderBlink 1000ms infinite;
+    font-size: 24px;
+    white-space: nowrap;
 }
+.cursor {
+    height: 100%;
+    width: 2px;
+    color: #3AF6EF;
+  }
+
+@keyframes moveRight {
+    0% {
+      width: 0%;
+    }
+  
+    100% {
+      width: 340px;
+    }
+  }
+  
+  @keyframes borderBlink {
+    0%,
+    100% {
+      border-right-color: transparent;
+    }
+  
+    50% {
+      border-right-color: #3AF6EF;
+    }
+  }
+
 .mountains {
     margin-top: 2em;
     width: 100%;

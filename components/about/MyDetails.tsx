@@ -10,6 +10,7 @@ function MyDetails() {
                     initial={{y: 100, opacity: 0}} 
                     whileInView={{y: 0, opacity: 1}} 
                     transition={{delay: 0.3*i, duration: 0.3}} 
+                    viewport={{once: true}}
                     key={i}>
                         <motion.span className={i===0?'first-span':''}>{detail}</motion.span>
                         <br/> <br/>

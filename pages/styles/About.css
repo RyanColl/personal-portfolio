@@ -29,9 +29,10 @@
 }
 .my-story > div > span {
     font-size: 16.5px;
+    color: var(--foreground-color2);
 }
 .first-span {
-    color: var(--foreground-color2);
+    
     display: block;
     margin-bottom: -16px;
 }
