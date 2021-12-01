@@ -17,7 +17,6 @@ app.prepare()
   server.use(middleware)
   // server.use(express.static('build'))
   server.use(cors());
-  console.log(dev)
   // sets the theme when button is pressed
   server.post("/setTheme", (req, res, next) => {
     // console.log(req.body.lightTheme)
@@ -51,10 +50,8 @@ app.prepare()
       })
   })
   server.get('*', (req, res) => {
-    
     return handle(req, res)
   })
-  
   server.listen(PORT, (err) => {
     if (err) throw err
     console.log(`> Ready on port: ${PORT}`)

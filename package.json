@@ -6,8 +6,7 @@
     "build": "next build",
     "start": "node server.js",
     "serve": "npm run build && npm run start",
-    "proto-build": "next build && next export -o build",
-    "host": "firebase deploy --only hosting:rcoll-dev"
+    "proto-build": "next build && next export -o build"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
