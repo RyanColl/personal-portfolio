@@ -6,16 +6,11 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "function": "nextServer"
-      }
     ]
   },
   "functions": {
-    "source": ".",
-    "runtime": "nodejs14"
+    "source": "functions",
+    "runtime": "nodejs14",
+    "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   }
 }
