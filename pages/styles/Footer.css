@@ -1,4 +1,20 @@
+.foot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 55px;
+    background-color: var(--background-color1);
+  }
+  .icon:hover {
 
+  }
+  .icon {
+
+  }
+  .icon-container {
+      display: flex;
+  }
 .icon-container {
     display: flex;
     justify-content: center;
@@ -11,14 +27,7 @@
     transform: translateY(-10px);
     cursor: pointer;
 }
-#footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 55px;
-    background-color: var(--background-color1);
-  }
+
 /* @keyframes animateLink {
     0% {transform: translateY(0px);}
     10% {transform: translateY(-10px);}
@@ -43,6 +52,9 @@
     animation: disappear 3s linear;
     opacity: 0;
     z-index: 10;
+}
+.copy-message > span {
+    font-family: 'Play', sans-serif;
 }
 @keyframes disappear {
     0% {opacity: 1;}

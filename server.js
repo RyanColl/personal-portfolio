@@ -1,11 +1,11 @@
 const express = require('express')
 const next = require('next')
-const {redis} = require('./lib/redis.ts')
-const fs = require('fs').promises
-const path = require('path')
+// const {redis} = require('./lib/redis.ts')
+// const fs = require('fs').promises
+// const path = require('path')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const cors = require('cors');
+// const cors = require('cors');
 const handle = app.getRequestHandler()
 const PORT = process.env.PORT || 3000
 console.log('next server started')
@@ -16,45 +16,45 @@ app.prepare()
   server.use(express.json()) // need this to receive req.body
   server.use(middleware)
   // server.use(express.static('build'))
-  server.use(cors());
+  // server.use(cors());
   // sets the theme when button is pressed
-  server.post("/setTheme", (req, res, next) => {
-    // console.log(req.body.lightTheme)
-    redis
-      .set(`${req.ip}`, JSON.stringify({ lightTheme: req.body.lightTheme }))
-      .then((s) => {
-        return res.send({ok: s});
-      }).catch(e => res.send({ok: false}))
-  });
-  // gets the theme from cache/server
-  server.get('/getTheme', (req, res) => {
-      redis.get(`${req.ip}`).then(s => {
-        // console.log(JSON.parse(s))
-        if(!JSON.parse(s)) return res.send({lightTheme: false})
-        if(JSON.parse(s)) return JSON.parse(s)  
-      })
-      .then(result => {
-        return res.send({lightTheme: result.lightTheme})
-      }).catch(e => res.send({lightTheme: false}))
-  })
-  server.get('/interests', (req, res) => {
-    fs.readFile(path.join(__dirname, '/interests.json'), 'utf-8')
-      .then(i => {
-        return res.send({interests: JSON.parse(i)})
-      })
-  })
-  server.get('/getProjects', (req, res) => {
-    fs.readFile(path.join(__dirname, '/projects.json'), 'utf-8')
-      .then(i => {
-        return res.send({projects: JSON.parse(i)})
-      })
-  })
+  // server.post("/setTheme", (req, res, next) => {
+  //   // console.log(req.body.lightTheme)
+  //   redis
+  //     .set(`${req.ip}`, JSON.stringify({ lightTheme: req.body.lightTheme }))
+  //     .then((s) => {
+  //       return res.send({ok: s});
+  //     }).catch(e => res.send({ok: false}))
+  // });
+  // // gets the theme from cache/server
+  // server.get('/getTheme', (req, res) => {
+  //     redis.get(`${req.ip}`).then(s => {
+  //       // console.log(JSON.parse(s))
+  //       if(!JSON.parse(s)) return res.send({lightTheme: false})
+  //       if(JSON.parse(s)) return JSON.parse(s)  
+  //     })
+  //     .then(result => {
+  //       return res.send({lightTheme: result.lightTheme})
+  //     }).catch(e => res.send({lightTheme: false}))
+  // })
+  // server.get('/interests', (req, res) => {
+  //   fs.readFile(path.join(__dirname, '/interests.json'), 'utf-8')
+  //     .then(i => {
+  //       return res.send({interests: JSON.parse(i)})
+  //     })
+  // })
+  // server.get('/getProjects', (req, res) => {
+  //   fs.readFile(path.join(__dirname, '/projects.json'), 'utf-8')
+  //     .then(i => {
+  //       return res.send({projects: JSON.parse(i)})
+  //     })
+  // })
   server.get('*', (req, res) => {
     return handle(req, res)
   })
   server.listen(PORT, (err) => {
     if (err) throw err
-    console.log(`> Ready on port: ${PORT}`)
+    console.log(`> Ready on port: http://localhost:${PORT}`)
   })
 })
 .catch((ex) => {

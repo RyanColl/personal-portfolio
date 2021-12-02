@@ -46,12 +46,14 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
     
     return (
         <>
-            {emailSuccessMsg!=='' && <motion.div className="copy-message">Email copied to clipboard</motion.div>}
-            <div id="footer">
+            {emailSuccessMsg!=='' && <motion.div className="copy-message"><span>Email copied to clipboard</span></motion.div>}
+            <motion.div className="foot">
                 <motion.div className="icon-container">
                     {icons.map(({name, link, onClick, Link}: any, i: number) => {     
                             return(
-                                <motion.a key={i} id={name} onClick={onClick} href={link===''?undefined:link} className={name}>
+                                <motion.a 
+                                key={i} id={name} onClick={onClick} 
+                                href={link===''?undefined:link} className={name}>
                                     <motion.div>
                                         <Link className={'icon'} />
                                     </motion.div>
@@ -59,10 +61,10 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                             )
                     })}
                 </motion.div>
-                <div className="brand">
-                    <span>RColl Dev •|•  © 2021  •|• Ryan Collicutt</span>
-                </div>
-            </div>
+                <motion.div className="brand">
+                    <motion.span>RColl Dev •|•  © 2021  •|• Ryan Collicutt</motion.span>
+                </motion.div>
+            </motion.div>
         </>
     )
 }

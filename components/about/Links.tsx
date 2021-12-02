@@ -43,11 +43,17 @@ function Links() {
     ]
     return (
         <>
-        {emailSuccessMsg!=='' && <motion.div className="copy-message">Email copied to clipboard</motion.div>}
+        {emailSuccessMsg!=='' && <motion.div className="copy-message"><span>Email copied to clipboard</span></motion.div>}
             <motion.div className='about-link-container'>
             {icons.map(({name, link, onClick, Link}: any, i: number) => {    
                 return(
-                    <motion.a key={i} id={name} onClick={onClick} href={link===''?undefined:link} className={name}>
+                    <motion.a 
+                    initial={{y: 80, opacity: 0}}
+                    whileInView={{y: 0, opacity: 1}}
+                    viewport={{once: true}}
+                    transition={{ delay: (0.25*i)+1}}
+                    key={i} id={name} onClick={onClick} 
+                    href={link===''?undefined:link} className={name}>
                         <motion.div>
                             <Link className={'icon'} />
                         </motion.div>

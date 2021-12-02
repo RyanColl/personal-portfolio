@@ -1,10 +1,10 @@
 import './styles/App.css';
 import './styles/NavBar.css';
 import './styles/IndexPage.css'
-import './styles/Footer.css';
 import './styles/component.styles.css';
 import './styles/ProjectsPage.css';
 import './styles/About.css';
+import './styles/Footer.css';
 import './styles/BlogPage.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
@@ -16,7 +16,7 @@ import { changeThemeToDark, changeThemeToLight } from '../services/document.serv
 // import { getTheme, setTheme } from '../services/fetch.services';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { getTheme, setTheme } from '../services/fetch.services';
+import { getTheme, pingSystem, setTheme } from '../services/fetch.services';
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
@@ -35,6 +35,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       if(!data.lightTheme) changeThemeToDark() // changes css variables to dark configuration
       setLightTheme(data.lightTheme)
     })
+    pingSystem()
   }, [])
   const [currentRoute, setCurrentRoute] = useState('')
   useEffect(() => {
