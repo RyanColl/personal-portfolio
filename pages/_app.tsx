@@ -13,28 +13,21 @@ import ScrollButton from '../components/Scroll/ScrollButton';
 import Footer from '../components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import { changeThemeToDark, changeThemeToLight } from '../services/document.services';
-import { getTheme, setTheme } from '../services/fetch.services';
+// import { getTheme, setTheme } from '../services/fetch.services';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
-    setTheme(!lightTheme) // server fetch
+    // setTheme(!lightTheme) // server fetch
     setLightTheme(!lightTheme); // set state
     if(lightTheme) changeThemeToDark() // changes css variables to dark configuration
     if(!lightTheme) changeThemeToLight() // changes css variables to light configuration
   }
   useEffect(() => {
-    document.body.style.margin = '0';
-    getTheme()
-      .then(lt => {
-        if(lt) {
-          setLightTheme(true)
-          changeThemeToLight()
-        }
-      })
+    document.body.style.margin = '0'; 
   }, [])
   const [currentRoute, setCurrentRoute] = useState('')
   useEffect(() => {

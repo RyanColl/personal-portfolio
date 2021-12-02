@@ -1,20 +1,19 @@
 import { getInterests as interests, getProjects as projects } from "./contentful.services";
-export const setTheme = (lightTheme: boolean) => {
-    fetch("/setTheme", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ lightTheme }),
-    });
-}
+// import {redis} from '../lib/redis'
+// export const setTheme = (lightTheme: boolean) => {
+//   localStorage.setItem('lightTheme', JSON.stringify({lightTheme}))
+//   console.log('item set')
+// }
 
-export const getTheme = (): Promise<boolean> => {
-    return fetch('/getTheme').then(data => (data.json()))
-      .then(data => {
-        return data.lightTheme
-      })
-}
+// export const getTheme = () => {
+//   let theme = JSON.parse(localStorage.getItem('lightTheme')!)
+//   if(theme !== undefined) {
+//     return theme
+//   }
+//   else {
+//     return undefined
+//   }
+// } 
 
 export const getInterests = () => {
   return interests().then((entry: any) => entry).catch((e: any) => undefined)

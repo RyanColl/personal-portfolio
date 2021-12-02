@@ -5,11 +5,10 @@
   },
   "main": "server.js",
   "scripts": {
-    "next": "next dev",
-    "dev": "node server.js",
+    "next": "next",
+    "dev": "next start",
     "build": "next build",
-    "start": "next start",
-    "serve": "npm run build && npm run start",
+    "start": "npm run build && npm run dev",
     "deploy": "npm run proto-build && firebase deploy --only functions,hosting",
     "proto-build": "next build && next export -o build"
   },
