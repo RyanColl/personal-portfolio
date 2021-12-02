@@ -47,7 +47,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
     return (
         <>
             {emailSuccessMsg!=='' && <motion.div className="copy-message">Email copied to clipboard</motion.div>}
-            <motion.div className="footer">
+            <div id="footer">
                 <motion.div className="icon-container">
                     {icons.map(({name, link, onClick, Link}: any, i: number) => {     
                             return(
@@ -62,7 +62,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                 <div className="brand">
                     <span>RColl Dev •|•  © 2021  •|• Ryan Collicutt</span>
                 </div>
-            </motion.div>
+            </div>
         </>
     )
 }

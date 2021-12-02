@@ -16,18 +16,25 @@ import { changeThemeToDark, changeThemeToLight } from '../services/document.serv
 // import { getTheme, setTheme } from '../services/fetch.services';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+import { getTheme, setTheme } from '../services/fetch.services';
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
-    // setTheme(!lightTheme) // server fetch
-    setLightTheme(!lightTheme); // set state
-    if(lightTheme) changeThemeToDark() // changes css variables to dark configuration
     if(!lightTheme) changeThemeToLight() // changes css variables to light configuration
+    if(lightTheme) changeThemeToDark() // changes css variables to dark configuration
+    setTheme(!lightTheme) // server fetch
+    setLightTheme(!lightTheme); // set state
   }
   useEffect(() => {
     document.body.style.margin = '0'; 
+    getTheme().then(data => {
+      console.log('getting data: ', data)
+      if(data.lightTheme) changeThemeToLight() // changes css variables to light configuration
+      if(!data.lightTheme) changeThemeToDark() // changes css variables to dark configuration
+      setLightTheme(data.lightTheme)
+    })
   }, [])
   const [currentRoute, setCurrentRoute] = useState('')
   useEffect(() => {

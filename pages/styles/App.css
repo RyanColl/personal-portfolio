@@ -9,7 +9,6 @@
   --foreground-color2: white;
   --border-color: white;
 }
-
 html {
   display: flex;
   justify-content: flex-start;

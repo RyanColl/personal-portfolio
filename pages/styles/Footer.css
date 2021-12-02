@@ -1,11 +1,4 @@
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 55px;
-    background-color: var(--background-color1);
-}
+
 .icon-container {
     display: flex;
     justify-content: center;
@@ -18,7 +11,14 @@
     transform: translateY(-10px);
     cursor: pointer;
 }
-
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 55px;
+    background-color: var(--background-color1);
+  }
 /* @keyframes animateLink {
     0% {transform: translateY(0px);}
     10% {transform: translateY(-10px);}
