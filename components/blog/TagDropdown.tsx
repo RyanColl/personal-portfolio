@@ -1,8 +1,11 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import React, { useState } from 'react'
+import { AnimatePresence, motion, Transition } from 'framer-motion'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
-const TagDropdown = ({tags}: {tags: string[]}) => {
+const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: Dispatch<SetStateAction<string>>}) => {
     const [isOpen, setOpen] = useState(false)
+    const close = () => {
+        setOpen(false)
+    }
     const containerStyles = {
         hidden: {
             display: 'none',
@@ -31,6 +34,11 @@ const TagDropdown = ({tags}: {tags: string[]}) => {
         visible: {y: 0, opacity: 1},
         exit: {translateX: -300, opacity: 0}
     }
+    useEffect(() => {
+        isOpen && 
+        window.addEventListener('click', close) 
+        return () => window.removeEventListener('click', close)
+    })
     return (
         <>
             <motion.div 
@@ -43,16 +51,17 @@ const TagDropdown = ({tags}: {tags: string[]}) => {
             
             {/* @ts-ignore */}
             <motion.div key={'tags'} variants={containerStyles} animate={"visible"} initial="hidden" className="tags">
-                {tags.length>0 && tags.map((tag, i) => {
+                {tags.length>0 && tags.filter((value, index, self) => self.indexOf(value) === index) // filters out duplicates in 1 line
+                    .map((tag, i) => {
                     return (
                         <AnimatePresence>
-                        {isOpen &&   
-                            <motion.div
+                        {isOpen &&  /* @ts-ignore */ 
+                            <motion.div whileHover={{scale: 1.1, transition: 0}}
+                            onClick={() => {setOpen(!isOpen); setTitle(tag)}}
                             animate="visible"
                             initial="hidden"
                             exit="exit"
                             variants={tagStyles}
-                            whileHover={{scale: 1.1}}
                             transition={{delay: 0.1*i}}
                             key={`dropdown-tag-${i}`} className='dropdown-tag'>
                                 <motion.span>{tag}</motion.span>

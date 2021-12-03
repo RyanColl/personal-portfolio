@@ -4,6 +4,14 @@ import SearchBar from '../components/blog/SearchBar'
 import Header from '../components/Header/Header'
 import Link from 'next/link'
 import { getBlogDescriptions } from '../services/contentful.services'
+interface Description {
+    id: number; 
+    title: string; 
+    description: string;
+    tags: string[]; 
+    date: string; 
+    image: string;
+}
 const blog = ({lightTheme}: {lightTheme: boolean}) => {
     const [postsTitle, setPostsTitle] = useState('All Posts')
     const [descriptions, setDescriptions] = useState([])
@@ -19,6 +27,7 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
                 if(descriptions.length>0) {
                     let tagArr: string[] = []
                     descriptions.map((desc: any, i: number) => {
+                        if(i === 0) tagArr = ['All Posts']
                         tagArr = [...tagArr, ...desc.tags]
                     })
                     {/* @ts-ignore */}
@@ -34,10 +43,14 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
     }
     return (
         <motion.div className="blog-wrapper">
-            <Header tags={tags} search={true} text={postsTitle} />
+            <Header setTitle={setPostsTitle} tags={tags} text={postsTitle} />
             <SearchBar value={value} setValue={setValue} formSubmit={formSubmit} />
             <motion.div className="posts">
-                {descriptions.length>0 && descriptions.map((descript, i) => {
+                {descriptions.length>0 && descriptions.filter((d, j) =>{
+                    let {id, title, description, tags, date, image}: Description = d;
+                    if(postsTitle!=='All Posts') return tags.includes(postsTitle!=='All Posts'?postsTitle:'')
+                    else return true
+                }).map((descript, i) => {
                     let {id, title, description, tags, date, image} = descript;
                     console.log('id: ', id)
                     console.log('description: ', description)
