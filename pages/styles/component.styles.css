@@ -42,6 +42,9 @@
     justify-content: center;
     align-items: flex-start;
 }
+.header-section {
+  display: flex;
+}
 .large-header {
     font-size: 88px;
     color: var(--foreground-color2);
@@ -51,6 +54,21 @@
 .hr-header {
   color: var(--foreground-color2);
   width: 100%;
+}
+.dropdown-div {
+  margin-top: 3em;
+  margin-left: 0.75em;
+  transform: scale(1.2);
+}
+.dropdown-div:hover {
+  cursor: pointer;
+}
+.tags {
+  display: flex;
+  justify-content: center;
+}
+.dropdown-tag {
+
 }
 @media only screen and (max-width: 600px) {
     .large-header {

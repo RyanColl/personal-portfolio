@@ -41,13 +41,18 @@
     cursor: pointer;
 }
 .blog-description {
+    margin-top: 4em;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-direction: row;
+    border-bottom: 1px solid var(--foreground-color2);
+}
+.blog-description:first-child {
+    margin-top: 2em;
 }
 .b-d-image-container {
     padding: 1em;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,6 +86,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
     flex-grow: 2;
 }
 .b-d-t-c-second {
@@ -88,11 +94,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     flex-grow: 2;
     margin-top: 1em;
 }
 .tag {
     transition: 0.5s;
+    white-space: nowrap;
     margin-right: 2em;
     padding: 0.1em;
     border-radius: 2px;
@@ -130,12 +138,16 @@
     flex-grow: 6;
 }
 .b-d-t-c-third > p {
-    
+    color: var(--foreground-color2);
 }
-.b-d-title {
+.b-d-title > a {
     font-size: 25px;
     color: var(--foreground-color2);
     font-weight: 700;
+    text-decoration: none;
+}
+.b-d-title > a:hover {
+
 }
 .b-d-date {
     font-size: 16px;
@@ -143,8 +155,46 @@
     font-family: 'Ubuntu' sans-serif;
     font-weight: 300;
 }
+.blog-description-img:hover {
+    cursor: pointer;
+}
 @media only screen and (max-width: 900px) {
+    .blog-description {
+        flex-direction: column;
+        align-items: center;
+    }
     .blog-wrapper {
         width: 80%;
+    }
+    .b-d-t-c-first {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .b-d-image-container {
+        width: 243px;
+    }
+    .tag {
+        
+    }
+}
+@media only screen and (max-width: 500px) {
+    .tag {
+        margin-right: 1.5em;
+    }
+    .tag > a {
+        font-size: 14.5px;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .tag {
+        margin-right: 1.25em;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .tag {
+        margin-right: 1em;
+    }
+    .tag > a {
+        font-size: 13.5px;
     }
 }

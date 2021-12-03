@@ -6,7 +6,7 @@ import Header from '../components/Header/Header'
 const about = () => {
     return (
       <motion.div className="about-page">
-        <Header search={false} text="About" />
+        <Header tags={[]} search={false} text="About" />
         <motion.div className="about">
           <motion.div className="my-details">
             <motion.div className="my-image">

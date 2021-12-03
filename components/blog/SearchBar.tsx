@@ -10,7 +10,7 @@ const SearchBar = ({formSubmit, setValue, value}: any) => {
         onSubmit={formSubmit} className="search-div">
             <motion.input className="search-bar" type="text" placeholder="Search..." 
             value={value} onChange={({target: {value}}) => {setValue(value)}}  />
-            <motion.button type="submit" className="mag-glass">
+            <motion.button whileTap={{scale: 0.9}} type="submit" className="mag-glass">
                 <Icon color="white" width="40" icon="healthicons:magnifying-glass" />
             </motion.button>
         </motion.form>

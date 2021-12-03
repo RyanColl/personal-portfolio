@@ -2,17 +2,31 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import SearchBar from '../components/blog/SearchBar'
 import Header from '../components/Header/Header'
+import Link from 'next/link'
 import { getBlogDescriptions } from '../services/contentful.services'
 const blog = ({lightTheme}: {lightTheme: boolean}) => {
     const [postsTitle, setPostsTitle] = useState('All Posts')
     const [descriptions, setDescriptions] = useState([])
     const [value, setValue] = useState('')
+    const [tags, setTags] = useState([])
     const formSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
     }
     useEffect(() => {
         getBlogDescriptions()
-            .then((entry: any) => setDescriptions(entry.fields.blogDescriptions))
+            .then((entry: any) => {
+                let descriptions = entry.fields.blogDescriptions
+                if(descriptions.length>0) {
+                    let tagArr: string[] = []
+                    descriptions.map((desc: any, i: number) => {
+                        tagArr = [...tagArr, ...desc.tags]
+                    })
+                    {/* @ts-ignore */}
+                    setTags(tagArr)
+                    setDescriptions(descriptions)
+                }
+                
+            })
             .catch((e: any) => console.log(e))
     }, [])
     const tagStyles = {
@@ -20,7 +34,7 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
     }
     return (
         <motion.div className="blog-wrapper">
-            <Header search={true} text={postsTitle} />
+            <Header tags={tags} search={true} text={postsTitle} />
             <SearchBar value={value} setValue={setValue} formSubmit={formSubmit} />
             <motion.div className="posts">
                 {descriptions.length>0 && descriptions.map((descript, i) => {
@@ -32,13 +46,16 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
                         <motion.div key={i} className='blog-description'>
                             <motion.div className='b-d-image-container'>
                                 <motion.div className="b-d-image-div">
-                                    {/* @ts-ignore */}
-                                    <motion.img src={image} />
+                                    <Link href={`post/${id}`}>
+                                        <motion.img 
+                                        whileHover={{scale: 1.1}} whileTap={{scale: 1}}
+                                        className="blog-description-img" src={image} />
+                                    </Link>
                                 </motion.div>
                             </motion.div>
                             <motion.div className='b-d-text-container'>
                                 <motion.div className='b-d-t-c-first'>
-                                    <motion.span className='b-d-title'>{title}</motion.span>
+                                    <motion.span className='b-d-title'><Link href={`post/${id}`}>{title}</Link></motion.span>
                                     <motion.span className='b-d-date'>{date}</motion.span>
                                 </motion.div>
                                 <motion.div className='b-d-t-c-second'>
