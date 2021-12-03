@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "title": "Creating Traffic with Natural SEO",
+        "description": "Using specific HTML tags, along with properly structured meta-data, we inlfuence how google sees our pages. Follow along as I explain how to simply integrate best industry practices in SEO implementation. Then, using JavaScript we will explo the power of analytics.",
+        "tags": ["HTML", "DIGITAL MARKETING", "JAVASCRIPT"],
+        "date": "Dec 1, 2021",
+        "image": "./seo.png"
+    },
+    {
+        "id": "2",
+        "title": "How to Leverage your Network",
+        "description": "Many people have a large network, but do not utilize them to the full extent. Here I show you how to leverage your already existing network to help bring traffic to your website.",
+        "tags": ["BUSINESS", "DIGITAL MARKETING", "NETWORKING"],
+        "date": "Dec 4, 2021",
+        "image": "./networking.png"
+    }
+]

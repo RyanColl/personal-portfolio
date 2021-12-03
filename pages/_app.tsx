@@ -54,7 +54,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
           lightSwitch={lightSwitch} 
           /> 
         </motion.header>
-        <Component {...pageProps} />
+        <Component lightTheme={lightTheme} {...pageProps} />
       </motion.div>
       {currentRoute!=='about' && <Footer lightTheme={lightTheme} />}
       {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}

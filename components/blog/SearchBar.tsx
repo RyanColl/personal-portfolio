@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useState } from 'react'
+import { Icon } from '@iconify/react';
 
-const SearchBar = () => {
+const SearchBar = ({formSubmit, setValue, value}: any) => {
     return (
-        <motion.div style={{width: '100%'}}>
-            <motion.input className="search-bar" type="text" placeholder="Search..."  />
-        </motion.div>
+        <motion.form 
+        initial={{y: 800, opacity: 0}} animate={{y: 0, opacity: 1}}
+        transition={{ type: 'spring' , duration: 1}}
+        onSubmit={formSubmit} className="search-div">
+            <motion.input className="search-bar" type="text" placeholder="Search..." 
+            value={value} onChange={({target: {value}}) => {setValue(value)}}  />
+            <motion.button type="submit" className="mag-glass">
+                <Icon color="white" width="40" icon="healthicons:magnifying-glass" />
+            </motion.button>
+        </motion.form>
     )
 }
 

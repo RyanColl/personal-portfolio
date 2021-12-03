@@ -8,6 +8,10 @@
   --foreground-color1: white;
   --foreground-color2: white;
   --border-color: white;
+  --main-color: #3AF7F0;
+}
+:focus {
+  outline: var(--main-color) auto 5px;
 }
 html {
   display: flex;

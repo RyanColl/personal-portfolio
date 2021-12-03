@@ -16,7 +16,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                         setMsg('Email Copied To Clipboard!')
                         setTimeout(() => {
                             setMsg('')
-                        }, 3000)
+                        }, 4000)
                     })
                     .catch((e) => {
                         alert(e)

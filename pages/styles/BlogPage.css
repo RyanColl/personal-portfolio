@@ -9,10 +9,134 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 1.75em;
+    padding: 1.25em 1.5em;
+    border: 0px solid black;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    color: white;
 }
 .search-bar:focus {
-    border: 0px solid black;
+    outline: 2px solid var(--main-color);
+}
+.search-bar::placeholder {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    font-style: italic;
+    color: white;
+}
+.search-div {
+    margin: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mag-glass {
+    margin-left: -4.4em;
+    background-color: rgba(0,0,0,0);
+    border: 0px solid rgba(0,0,0,0);
+}
+.mag-glass:hover {
+    cursor: pointer;
+}
+.blog-description {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.b-d-image-container {
+    padding: 1em;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+.b-d-image-container > div > img {
+    width: 90%;
+}
+.b-d-text-container{
+    padding: 1em;
+    margin-top: 1em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.b-d-image-div {
+    width: 90%;
+    border-radius: 12px;
+    background-color: var(--background-color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.25), -3px -3px 4px rgba(0, 0, 0, 0.25);
+}
+.b-d-t-c-first {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 2;
+}
+.b-d-t-c-second {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 2;
+    margin-top: 1em;
+}
+.tag {
+    transition: 0.5s;
+    margin-right: 2em;
+    padding: 0.1em;
+    border-radius: 2px;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+    background-position: left top, right bottom, left bottom, right top;
+}
+
+.tag > a {
+    color: var(--main-color);
+    font-size: 16.5px;
+    text-decoration: none;
+    font-family: 'Play', sans-serif;
+    font-weight: 900;
+}
+.tag:hover {
+    
+    animation: border-dance 1s infinite linear;
+    cursor: pointer;
+    transition: 0.2s;
+}
+@keyframes border-dance {
+    0% {
+      background-position: left top, right bottom, left bottom, right top;
+    }
+    100% {
+      background-position: left 15px top, right 15px bottom , left bottom 15px , right top 15px;
+    }
+  }
+.b-d-t-c-third {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 6;
+}
+.b-d-title {
+    font-size: 25px;
+    color: var(--foreground-color2);
+    font-weight: 700;
+}
+.b-d-date {
+    font-size: 16px;
+    color: rgb(94, 93, 93);
 }
 @media only screen and (max-width: 900px) {
     .blog-wrapper {
