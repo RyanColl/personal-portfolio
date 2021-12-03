@@ -47,7 +47,9 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
                                         return <motion.div whileHover={tagStyles} key={`tag-${j}`} className='tag'><a>{tag}</a></motion.div>
                                     })}
                                 </motion.div>
-                                <motion.div className='b-d-t-c-third'></motion.div>
+                                <motion.div className='b-d-t-c-third'>
+                                    <motion.p>{description}</motion.p>
+                                </motion.div>
                             </motion.div>
                         </motion.div>
                     );

@@ -58,7 +58,7 @@
 }
 .b-d-text-container{
     padding: 1em;
-    margin-top: 1em;
+    margin-top: 0.5em;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -129,6 +129,9 @@
     align-items: center;
     flex-grow: 6;
 }
+.b-d-t-c-third > p {
+    
+}
 .b-d-title {
     font-size: 25px;
     color: var(--foreground-color2);
@@ -136,7 +139,9 @@
 }
 .b-d-date {
     font-size: 16px;
-    color: rgb(94, 93, 93);
+    color: #5e5d5d;
+    font-family: 'Ubuntu' sans-serif;
+    font-weight: 300;
 }
 @media only screen and (max-width: 900px) {
     .blog-wrapper {

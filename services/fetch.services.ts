@@ -32,9 +32,9 @@ export const pingSystem = () => {
         mode: 'cors'
       })
       .then(result => result.json())
-      .catch(e => console.log('error: ',e))
+      .catch(e => console.log('error: ', e))
       // fetch('https://ping-server-two.herokuapp.com/', {
       //   mode: 'cors'
       // }).catch(e => console.log('error: ',e))
-  }, 1800000)
+  }, 26*60000)
 }
