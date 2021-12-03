@@ -44,6 +44,7 @@
 }
 .header-section {
   display: flex;
+  position: relative;
 }
 .large-header {
     font-size: 88px;
@@ -66,9 +67,30 @@
 .tags {
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 150px;
+  flex-flow: column;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 4px;
 }
 .dropdown-tag {
-
+  width: 100%;
+  border-bottom: 0.001em solid var(--foreground-color2);
+  padding: 5px 5px;
+  background-color: var(--background-color2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdown-tag:first-child {
+  padding-top: 10px;
+}
+.dropdown-tag > span {
+  color: var(--foreground-color2);
+  text-align: center;
 }
 @media only screen and (max-width: 600px) {
     .large-header {
