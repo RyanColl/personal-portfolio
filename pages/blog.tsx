@@ -60,8 +60,8 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
                                 </motion.div>
                                 <motion.div className='b-d-t-c-second'>
                                     {/* @ts-ignore */}
-                                    {tags.map((tag, j) => {
-                                        return <motion.div whileHover={tagStyles} key={`tag-${j}`} className='tag'><a>{tag}</a></motion.div>
+                                    {tags.map((tag: string, j: number) => {
+                                        return <motion.div whileHover={tagStyles} key={`tag-${j}`} className='tag'><a>{tag.toUpperCase()}</a></motion.div>
                                     })}
                                 </motion.div>
                                 <motion.div className='b-d-t-c-third'>

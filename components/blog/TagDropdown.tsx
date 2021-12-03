@@ -19,7 +19,7 @@ const TagDropdown = ({tags}: {tags: string[]}) => {
             visibility: 'visible',
             opacity: 1,
             scale: 1,
-            width: 200,
+            width: 240,
             transition: {
                 when: "beforeChildren",
                 staggerChildren: 0.3
@@ -50,8 +50,9 @@ const TagDropdown = ({tags}: {tags: string[]}) => {
                             <motion.div
                             animate="visible"
                             initial="hidden"
-                            exit="hidden"
+                            exit="exit"
                             variants={tagStyles}
+                            whileHover={{scale: 1.1}}
                             transition={{delay: 0.1*i}}
                             key={`dropdown-tag-${i}`} className='dropdown-tag'>
                                 <motion.span>{tag}</motion.span>
