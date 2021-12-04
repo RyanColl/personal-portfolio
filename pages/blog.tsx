@@ -85,7 +85,9 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
                             </motion.div>
                             <motion.div className='b-d-text-container'>
                                 <motion.div className='b-d-t-c-first'>
-                                    <motion.span whileHover={{scale: 1.1}} className='b-d-title'><Link href={`post/${id}`}>{title}</Link></motion.span>
+                                    <motion.span whileHover={{scale: 1.1}} className='b-d-title'>
+                                        <Link href={{pathname: '/post', query: {'post': `${id}`}}}>{title}</Link>
+                                    </motion.span>
                                     <motion.span className='b-d-date'>{date}</motion.span>
                                 </motion.div>
                                 <motion.div className='b-d-t-c-second'>
