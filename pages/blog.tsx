@@ -47,8 +47,9 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
         let {id, title, description, tags, date, image} = d;
         if(postsTitle!=='All Posts') return tags.includes(postsTitle!=='All Posts'?postsTitle:'')
         else if(postsTitle==='All Posts' && searchQuery!=='') {
-            let combinedString = `${id}${title}${description}${tags.join('')}${date}${image.trim()}`
-            if(combinedString.includes(searchQuery)) return true
+            
+            let combinedString = `${id} ${title} ${description} ${tags.join(' ')} ${date} ${image}`
+            if(combinedString.toLowerCase().includes(searchQuery.toLowerCase())) return true
             else return false
         }
         else return true
@@ -59,7 +60,7 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
     }
     return (
         <motion.div className="blog-wrapper">
-            <Header setTitle={setTitle} tags={tags} text={postsTitle} />
+            <Header lightTheme={lightTheme} setTitle={setTitle} tags={tags} text={postsTitle} />
             <SearchBar value={value} setValue={setValue} formSubmit={formSubmit} />
             <motion.div variants={parentAnimation} animate="visible" initial="hidden" className="posts">
                 {descriptions.length && 

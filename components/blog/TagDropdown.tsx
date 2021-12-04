@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, Transition } from 'framer-motion'
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
-const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: (input: string) => void}) => {
+const TagDropdown = ({tags,  setTitle, lightTheme}: {tags: string[], setTitle: (input: string) => void, lightTheme: boolean}) => {
     const [isOpen, setOpen] = useState(false)
     const close = () => {
         setOpen(false)
@@ -47,7 +47,7 @@ const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: (input: strin
             animate={isOpen?{scale: 1.2, rotate: '0deg'}:{scale: 1.2, rotate: '180deg', translateY: width===24 ? -12 : -7}}
             transition={{duration: 0.3}} 
             whileTap={{scale: 1.1}} className="dropdown-div">
-                <Icon className="tag-icon" icon="eva:arrow-down-fill" width={width} />         
+                <Icon className="tag-icon" icon="eva:arrow-down-fill" color={lightTheme?"#1F2424":"white"} width={width} />         
             </motion.div>
             
             {/* @ts-ignore */}
