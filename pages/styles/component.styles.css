@@ -64,6 +64,9 @@
 .dropdown-div:hover {
   cursor: pointer;
 }
+.tag-icon {
+  color: var(--foreground-color2);
+}
 .tags {
   display: flex;
   justify-content: center;

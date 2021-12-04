@@ -37,6 +37,13 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       setLightTheme(data.lightTheme)
     })
     pingSystem()
+    let pathname = window.location.pathname;
+    let id = window.location.href.replace('https://www.rcoll-dev.com/post?post=', '')
+    console.log('query: ', window.location)
+    if(pathname === '/blog' || pathname === '/projects' || pathname === '/about') {
+      router.push({ pathname })
+    }
+    if(pathname === '/post') router.push({pathname, query: {'post': `${id}`} })
   }, [])
   const [currentRoute, setCurrentRoute] = useState('')
   useEffect(() => {

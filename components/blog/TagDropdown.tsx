@@ -47,7 +47,7 @@ const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: (input: strin
             animate={isOpen?{scale: 1.2, rotate: '0deg'}:{scale: 1.2, rotate: '180deg', translateY: width===24 ? -12 : -7}}
             transition={{duration: 0.3}} 
             whileTap={{scale: 1.1}} className="dropdown-div">
-                <Icon icon="eva:arrow-down-fill" color="white" width={width} />         
+                <Icon className="tag-icon" icon="eva:arrow-down-fill" width={width} />         
             </motion.div>
             
             {/* @ts-ignore */}
