@@ -14,7 +14,7 @@ const ProjectPage = () => {
     }, [])
     return (
         <motion.div className="projects-page">
-            <Header tags={[]} search={false} text='Projects'/>
+            <Header tags={[]} text='Projects'/>
             <motion.div className="projects">
                 {projects.length>0 && projects.map((project, i) => {
                     return (

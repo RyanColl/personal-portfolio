@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import TagDropdown from '../blog/TagDropdown';
 
-const Header = ({text, setTitle, tags}: {text: string, setTitle: (input: string) => void, tags: string[]}) => {
+const Header = ({text, setTitle, tags}: {text: string, setTitle?: (input: string) => void, tags: string[]}) => {
     const [width, setWidth] = useState(350)
     useEffect(() => {
         console.log(window.innerWidth)
@@ -19,7 +19,7 @@ const Header = ({text, setTitle, tags}: {text: string, setTitle: (input: string)
               )
             })}
           </motion.h1>
-          {tags.length>0 && <TagDropdown setTitle={setTitle} tags={tags} />}
+          {tags.length>0 && <TagDropdown setTitle={setTitle!} tags={tags} />}
         </motion.div>
         <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
       </motion.div>
