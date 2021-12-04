@@ -69,7 +69,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  right: 0;
+  left: 150px;
   top: 150px;
   flex-flow: column;
   width: 240px;
@@ -112,12 +112,14 @@
     .dropdown-div {
       margin-left: 0.4em;
     }
-    #header-s {
-      position: flex;
-    }
+
 }
 @media only screen and (max-width: 475px) {
   .large-header {
     font-size: 46px;
+  }
+  .tags {
+    top: 130px;
+    left: 30px;
   }
 }

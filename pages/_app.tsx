@@ -6,6 +6,7 @@ import './styles/ProjectsPage.css';
 import './styles/About.css';
 import './styles/Footer.css';
 import './styles/BlogPage.css';
+import './styles/Post.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import NavBar from '../components/NavBar/NavBar';

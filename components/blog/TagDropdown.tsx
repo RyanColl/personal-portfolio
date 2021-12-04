@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, Transition } from 'framer-motion'
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
-const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: Dispatch<SetStateAction<string>>}) => {
+const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: (input: string) => void}) => {
     const [isOpen, setOpen] = useState(false)
     const close = () => {
         setOpen(false)
@@ -39,14 +39,15 @@ const TagDropdown = ({tags,  setTitle}: {tags: string[], setTitle: Dispatch<SetS
         window.addEventListener('click', close) 
         return () => window.removeEventListener('click', close)
     })
+    const width = (typeof window != "undefined" ? ((window.innerWidth >= 475) ? 32 : (window.innerWidth < 475) ? 24 : 32) : undefined)
     return (
         <>
             <motion.div 
             onClick={() => {setOpen(!isOpen)}}
-            animate={isOpen?{scale: 1.2, rotate: '0deg'}:{scale: 1.2, rotate: '180deg', translateY: -6}}
+            animate={isOpen?{scale: 1.2, rotate: '0deg'}:{scale: 1.2, rotate: '180deg', translateY: width===24 ? -12 : -7}}
             transition={{duration: 0.3}} 
             whileTap={{scale: 1.1}} className="dropdown-div">
-                <Icon icon="eva:arrow-down-fill" color="white" width="32" />         
+                <Icon icon="eva:arrow-down-fill" color="white" width={width} />         
             </motion.div>
             
             {/* @ts-ignore */}

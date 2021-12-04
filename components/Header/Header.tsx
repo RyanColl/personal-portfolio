@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import TagDropdown from '../blog/TagDropdown';
 
-const Header = ({text, setTitle, tags}: {text: string, setTitle: Dispatch<SetStateAction<string>>, tags: string[]}) => {
+const Header = ({text, setTitle, tags}: {text: string, setTitle: (input: string) => void, tags: string[]}) => {
     const [width, setWidth] = useState(350)
     useEffect(() => {
         console.log(window.innerWidth)

@@ -3,13 +3,14 @@
     margin-bottom: 60px;
 }
 .search-bar {
-    width: 62.5%;
+    width: 57.5%;
     background-color: #514E4E;
     border-radius: 12px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 1.25em 1.5em;
+    padding-right: 3.75em;
     border: 0px solid black;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 200;
@@ -147,7 +148,7 @@
     text-decoration: none;
 }
 .b-d-title > a:hover {
-
+    /* filter: brightness(150%); */
 }
 .b-d-date {
     font-size: 16px;
@@ -157,6 +158,21 @@
 }
 .blog-description-img:hover {
     cursor: pointer;
+}
+
+.empty-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.empty-div > img {
+    width: 250px;
+}
+.empty-div > span {
+    text-align: center;
+    color: var(--foreground-color2);
 }
 @media only screen and (max-width: 900px) {
     .blog-description {
