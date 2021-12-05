@@ -47,7 +47,6 @@ const blog = ({lightTheme}: {lightTheme: boolean}) => {
         let {id, title, description, tags, date, image} = d;
         if(postsTitle!=='All Posts') return tags.includes(postsTitle!=='All Posts'?postsTitle:'')
         else if(postsTitle==='All Posts' && searchQuery!=='') {
-            
             let combinedString = `${id} ${title} ${description} ${tags.join(' ')} ${date} ${image}`
             if(combinedString.toLowerCase().includes(searchQuery.toLowerCase())) return true
             else return false

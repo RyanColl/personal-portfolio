@@ -65,7 +65,12 @@
   cursor: pointer;
 }
 .tag-icon {
-  color: var(--foreground-color2);
+  animation: invisible 1.8s ease-out;
+}
+@keyframes invisible {
+  0% {opacity: 0; transform: translateX(-300px);}
+  60% {opacity: 0;}
+  100% {opacity: 1; transform: translateX(0);}
 }
 .tags {
   display: flex;
@@ -108,6 +113,7 @@
   background-color: var(--background-color2);
   transition: transform 0.2s ease-out;
 }
+
 @media only screen and (max-width: 600px) {
     .large-header {
         font-size: 66px;

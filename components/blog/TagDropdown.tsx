@@ -1,11 +1,12 @@
 import { AnimatePresence, motion, Transition } from 'framer-motion'
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
-const TagDropdown = ({tags,  setTitle, lightTheme}: {tags: string[], setTitle: (input: string) => void, lightTheme: boolean}) => {
+const TagDropdown = (
+        {tags,  setTitle, lightTheme}: 
+        {tags: string[], setTitle: (input: string) => void, lightTheme?: boolean}
+    ) => {
     const [isOpen, setOpen] = useState(false)
-    const close = () => {
-        setOpen(false)
-    }
+    const close = () => setOpen(false)
     const containerStyles = {
         hidden: {
             display: 'none',
@@ -35,8 +36,7 @@ const TagDropdown = ({tags,  setTitle, lightTheme}: {tags: string[], setTitle: (
         exit: {translateX: -300, opacity: 0}
     }
     useEffect(() => {
-        isOpen && 
-        window.addEventListener('click', close) 
+        isOpen && window.addEventListener('click', close) 
         return () => window.removeEventListener('click', close)
     })
     const width = (typeof window != "undefined" ? ((window.innerWidth >= 475) ? 32 : (window.innerWidth < 475) ? 24 : 32) : undefined)
@@ -44,7 +44,8 @@ const TagDropdown = ({tags,  setTitle, lightTheme}: {tags: string[], setTitle: (
         <>
             <motion.div 
             onClick={() => {setOpen(!isOpen)}}
-            animate={isOpen?{scale: 1.2, rotate: '0deg'}:{scale: 1.2, rotate: '180deg', translateY: width===24 ? -12 : -7}}
+            initial={{scale: 0}}
+            animate={isOpen?{scale: 1.2, rotate: '0deg', translateY: width===24 ? -10 : -3}:{scale: 1.2, rotate: '180deg', translateY: width===24 ? -12 : -5}}
             transition={{duration: 0.3}} 
             whileTap={{scale: 1.1}} className="dropdown-div">
                 <Icon className="tag-icon" icon="eva:arrow-down-fill" color={lightTheme?"#1F2424":"white"} width={width} />         

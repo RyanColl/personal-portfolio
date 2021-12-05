@@ -51,7 +51,7 @@ function Footer({lightTheme}: {lightTheme: boolean}) {
                 <motion.div className="icon-container">
                     {icons.map(({name, link, onClick, Link}: any, i: number) => {     
                             return(
-                                <motion.a 
+                                <motion.a target={link===''?"":"_blank"}
                                 key={i} id={name} onClick={onClick} 
                                 href={link===''?undefined:link} className={name}>
                                     <motion.div>

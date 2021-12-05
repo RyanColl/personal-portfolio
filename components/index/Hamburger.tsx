@@ -55,4 +55,4 @@ const Hamburger = ({lightTheme, active, isOpen, setOpen}: any) => {
     )
 }
 
-export default motion(Hamburger);
+export default Hamburger;

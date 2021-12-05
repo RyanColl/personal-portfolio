@@ -19,7 +19,6 @@ export const IndexButton = (
                 className="index-button" style={style}>
                     {text} 
                     <motion.span
-                    animate={{rotate: '180deg'}}
                     style={{paddingLeft: 5}} className="iconify" 
                     data-icon="fa-regular:arrow-alt-circle-right"></motion.span>
                 </motion.button>

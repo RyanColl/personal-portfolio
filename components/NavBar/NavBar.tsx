@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion';
-import styled from 'styled-components'
 import Hamburger from '../index/Hamburger';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 const openMenu = {translateX: 205, height: 100}
 const closeMenu = {translateX: 0, height: 500}
 const initial = {home: false, projects: false, blog: false, about: false}
-const NavItem = styled(motion.div)`
-  margin-right: 10px;
-  z-index: 12;
-`;
 const NavBar = ({lightTheme, lightSwitch}: any) => {
   const router = useRouter()
   const [active, setActive] = React.useState({home: true, projects: false, blog: false, about: false})
   const [isOpen, setOpen] = React.useState(false)
+  const close = () => setOpen(false)
+  useEffect(() => {
+    isOpen && window.addEventListener('click', close) 
+    return () => window.removeEventListener('click', close)
+  })
   const linkArray = [
     {
       link: 'Home',
@@ -46,10 +46,11 @@ useEffect(() => {
     initial={{x: '-100vh'}}
     transition={{duration: 0.5, type: 'spring'}}
     style={{ zIndex: 10 }} className="custom-navbar">
-      <NavItem
+      <motion.div className='nav-item'
+        onClick={() => {router.push('/')}}
         animate={{x: 0, opacity: 1}}
         initial={{x: '-10vw', opacity: 0}}
-       whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
+        whileHover={{ rotate: 30 }} whileTap={{ scale: 0.95 }}>
         <div style={{cursor: 'pointer'}} className="nav-logo">
           <img
             style={{ width: "77px", height: "77px" }}
@@ -57,9 +58,9 @@ useEffect(() => {
             src="./logo-p1.png"
           />
         </div>
-      </NavItem>
+      </motion.div>
       <motion.div className="nav-right">
-        <NavItem className="nav-links">
+        <motion.div className="nav-links nav-item">
           {linkArray.map((linkObj, i) => {
             return (
               <motion.div
@@ -76,7 +77,7 @@ useEffect(() => {
               </motion.div>
             );
           })}
-        </NavItem>
+        </motion.div>
         <motion.div
           animate={{x: 0, opacity: 1}}
           initial={{x: '-10vw', opacity: 0}}
@@ -126,7 +127,7 @@ useEffect(() => {
     </motion.div>
   );
 }
-export default motion(NavBar);
+export default NavBar;
 
 const container = {
   show: {

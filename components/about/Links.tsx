@@ -48,6 +48,7 @@ function Links() {
             {icons.map(({name, link, onClick, Link}: any, i: number) => {    
                 return(
                     <motion.a 
+                    target={link===''?"":"_blank"}
                     initial={{y: 80, opacity: 0}}
                     whileInView={{y: 0, opacity: 1}}
                     viewport={{once: true}}

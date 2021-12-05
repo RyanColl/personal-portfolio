@@ -5,11 +5,11 @@ import TagDropdown from '../blog/TagDropdown';
 
 const Header = (
       {text, setTitle, tags, lightTheme}: 
-      {text: string, setTitle?: (input: string) => void, tags: string[], lightTheme: boolean}
+      {text: string, setTitle?: (input: string) => void, tags: string[], lightTheme?: boolean}
     ) => {
     const [width, setWidth] = useState(350)
     useEffect(() => {
-        console.log(window.innerWidth)
+        // console.log(window.innerWidth)
         setWidth(window.innerWidth)
     }, [])
     return (

@@ -1,6 +1,5 @@
 .under-constr {
     display: flex;
-    width: 100%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -31,4 +30,9 @@
 }
 .go-back:hover {
     cursor: pointer;
+}
+@media only screen and (min-width: 600px) {
+    .under-constr-img {
+        width: 60%;
+    }
 }

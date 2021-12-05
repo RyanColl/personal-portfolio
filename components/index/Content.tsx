@@ -63,4 +63,4 @@ function IndexContent() {
     )
 }
 
-export default motion(IndexContent)
+export default IndexContent

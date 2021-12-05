@@ -38,8 +38,8 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     })
     pingSystem()
     let pathname = window.location.pathname;
-    let id = window.location.href.replace('https://www.rcoll-dev.com/post?post=', '')
-    // console.log('query: ', window.location)
+    let id = window.location.search.replace('?post=', '')
+    console.log('query: ', window.location.search.replace('?post=', ''))
     if(pathname === '/blog' || pathname === '/projects' || pathname === '/about') {
       router.push({ pathname })
     }
@@ -53,7 +53,15 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
+        <title>RColl Dev Portfolio Site</title>
         <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+        <meta property="og:description" content="RColl Dev, an aspiring developer, shows off his work in this spectacular portfolio site." />
+        <meta property="og:title" content="RColl Dev Portfolio Site" /> 
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.rcoll-dev.com/" />
+        <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/fullstack-dev-f9c5a.appspot.com/o/portfolio%2Fweb-design.png?alt=media&token=bf026db8-cb7f-4fbe-9578-42063d3cd7f9" />
+        <meta property="og:image:width" content="457" />
+        <meta property="og:image:height" content="540" />
       </Head>
       <motion.div className="App">
         <motion.header className="App-header">

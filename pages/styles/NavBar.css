@@ -88,6 +88,10 @@
   .nav-right {
     z-index: 12;
   }
+  .nav-item {
+    margin-right: 10px;
+    z-index: 12;
+  }
   .nav-links {
     display: flex;
     justify-content: space-between;
@@ -95,7 +99,7 @@
     z-index: 12;
   }
   .nav-link {
-    padding: 20px 20px;
+    padding: 20px 0px;
     border-bottom: 0px solid #3DECE6;
     cursor: pointer;
     transition: all 0.1s linear;
@@ -106,7 +110,7 @@
     -webkit-transform: translateY(-8px) scale(1.07) translateZ(0px);
   }
   .nav-link > a {
-    padding: 20px 0px;
+    padding: 20px 20px;
     font-size: 20px;
     text-decoration: none;
     color: var(--foreground-color1)
