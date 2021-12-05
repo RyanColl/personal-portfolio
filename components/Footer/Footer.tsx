@@ -2,8 +2,6 @@ import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { Icon } from '@iconify/react';
 const [darkColor, lightColor] = ['#1F2424', 'white']
-
-
 function Footer({lightTheme}: {lightTheme: boolean}) {
     const [emailSuccessMsg, setMsg] = useState('')
     const icons = [

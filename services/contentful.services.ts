@@ -3,7 +3,8 @@ import {contentfulClient} from '../secrets/secrets'
 const entries = {
     interests: '6xTo7B0ZnKbUXBaA4kpAIB',
     projects: '3CSMMnFy5b3BJJZsS27iIF',
-    blogDescriptions: '70RE62lRGiuokbrbCbdWhV'
+    blogDescriptions: '70RE62lRGiuokbrbCbdWhV',
+    posts: '4xu4ScdRZOvmnBTXbtsOQE'
 }
 const client = contentful.createClient(contentfulClient);
 export const getInterests = () => {
@@ -20,6 +21,12 @@ export const getProjects = () => {
 
 export const getBlogDescriptions = () => {
     return client.getEntry(entries.blogDescriptions)
+    .then((entry: any) => (entry))
+    .catch((err: any) => console.log(err))
+}
+
+export const getPosts = () => {
+    return client.getEntry(entries.posts)
     .then((entry: any) => (entry))
     .catch((err: any) => console.log(err))
 }
