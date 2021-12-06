@@ -4,7 +4,7 @@ const entries = {
     interests: '6xTo7B0ZnKbUXBaA4kpAIB',
     projects: '3CSMMnFy5b3BJJZsS27iIF',
     blogDescriptions: '70RE62lRGiuokbrbCbdWhV',
-    posts: '4xu4ScdRZOvmnBTXbtsOQE'
+    posts: '4886agV29vQvFhyZH1qJt4'
 }
 const client = contentful.createClient(contentfulClient);
 export const getInterests = () => {
@@ -25,8 +25,9 @@ export const getBlogDescriptions = () => {
     .catch((err: any) => console.log(err))
 }
 
-export const getPosts = () => {
+export const getPost1 = () => {
     return client.getEntry(entries.posts)
     .then((entry: any) => (entry))
     .catch((err: any) => console.log(err))
 }
+
