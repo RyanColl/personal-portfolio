@@ -4,8 +4,9 @@ import SearchBar from '../components/blog/SearchBar'
 import Header from '../components/Header/Header'
 import Link from 'next/link'
 import { getBlogDescriptions } from '../services/contentful.services'
+import { useRouter } from 'next/router'
 export interface Description {
-    id: number; 
+    id: string; 
     title: string; 
     description: string;
     tags: string[]; 
@@ -13,6 +14,10 @@ export interface Description {
     image: string;
 }
 const blog = ({lightTheme}: {lightTheme: boolean}) => {
+    const router = useRouter()
+    useEffect(() => {
+        if(router.query.tag) setPostsTitle(router.query.tag as string)
+    }, [router.query])
     const [postsTitle, setPostsTitle] = useState('All Posts')
     const [descriptions, setDescriptions] = useState([])
     const [value, setValue] = useState('')

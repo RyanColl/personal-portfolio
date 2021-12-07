@@ -56,7 +56,7 @@ const TagDropdown = (
                 {tags.length>0 && tags.filter((value, index, self) => self.indexOf(value) === index) // filters out duplicates in 1 line
                     .map((tag, i) => {
                     return (
-                        <AnimatePresence>
+                        <AnimatePresence key={`dropdown-tag-${i}`}>
                         {isOpen &&  /* @ts-ignore */ 
                             <motion.div whileHover={{scale: 1.1, transition: 0}}
                             onClick={() => {setOpen(!isOpen); setTitle(tag)}}
@@ -65,7 +65,7 @@ const TagDropdown = (
                             exit="exit"
                             variants={tagStyles}
                             transition={{delay: 0.1*i}}
-                            key={`dropdown-tag-${i}`} className='dropdown-tag'>
+                            className='dropdown-tag'>
                                 <motion.span>{tag}</motion.span>
                             </motion.div>
                         }

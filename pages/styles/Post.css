@@ -50,6 +50,9 @@
     border-radius: 12px;
     margin-top: 3.5em;
 }
+.blog-body-image:hover {
+    cursor: pointer;
+}
 .blog-body-image > img {
     width: 200px;
     height: 200px;

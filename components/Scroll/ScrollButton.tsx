@@ -22,7 +22,4 @@ function ScrollButton({lightTheme}: any) {
         </motion.div>
     )
 }
-
 export default ScrollButton
-
-

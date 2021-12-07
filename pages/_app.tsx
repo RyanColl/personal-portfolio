@@ -31,7 +31,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
     document.body.style.margin = '0'; 
     getTheme().then(data => {
-      console.log('getting data: ', data)
+      // console.log('getting data: ', data)
       if(data.lightTheme) changeThemeToLight() // changes css variables to light configuration
       if(!data.lightTheme) changeThemeToDark() // changes css variables to dark configuration
       setLightTheme(data.lightTheme)
@@ -39,7 +39,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     pingSystem()
     let pathname = window.location.pathname;
     let id = window.location.search.replace('?post=', '')
-    console.log('query: ', window.location.search.replace('?post=', ''))
+    // console.log('query: ', window.location.search.replace('?post=', ''))
     if(pathname === '/blog' || pathname === '/projects' || pathname === '/about') {
       router.push({ pathname })
     }

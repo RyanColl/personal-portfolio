@@ -35,10 +35,11 @@ const NavBar = ({lightTheme, lightSwitch}: any) => {
 ]
 useEffect(() => {
   let route = router.route.replace('/', '')
-  if(route==='projects') setActive({...initial, projects: true})
-  if(route==='blog') setActive({...initial, blog: true})
-  if(route==='about') setActive({...initial, about: true})
-  if(route==='') setActive({...initial, home: true})
+  if(route.includes('projects')) setActive({...initial, projects: true})
+  if(route.includes('blog')) setActive({...initial, blog: true})
+  if(route.includes('about')) setActive({...initial, about: true})
+  if(route.includes('post')) setActive({...initial, blog: true})
+  if(route === '') setActive({...initial, home: true})
 }, [router.route])
   return (
     <motion.div 

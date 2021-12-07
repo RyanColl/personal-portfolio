@@ -2,47 +2,42 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import UnderConstruction from '../components/post/UnderConstruction'
-import { getBlogDescriptions, getPost1 } from '../services/contentful.services'
+import { getBlogDescriptions, getPost } from '../services/contentful.services'
 import PostLayout from '../components/post/PostLayout'
+import { Description } from './blog'
 
-const post = () => {
+const post = ({lightTheme}: {lightTheme: boolean}) => {
     const router = useRouter()
     const [postNumber, setPostNumber] = useState(0)
     const [postData, setPostData] = useState([sampleDataShape])
-    const [tags, setTags] = useState([])
-    const [descriptions, setDescriptions] = useState([])
+    const [description, setDescription] = useState(initialDescription)
+    const [doesExist, setExist] = useState(true)
     useEffect(() => {
         let post = router.query.post as string
         setPostNumber(parseInt(post))
     }, [router.query])
-    // console.log(images.filter(({id}, i) => postNumber === id).length)
+    
     useEffect(() => {
-        getPost1()
-            .then((entry: any) => setPostData(entry.fields.post.content as ContentfulBlogData[]))
-            .catch((e: any) => console.log(e))
-        getBlogDescriptions()
+        if(postNumber!==0) {
+            {/* @ts-ignore */}
+           getPost(`post${postNumber}`)
             .then((entry: any) => {
-              let descriptions = entry.fields.blogDescriptions;
-              console.log(descriptions)
-              if (descriptions.length > 0) {
-                let tagArr: string[] = [];
-                descriptions.map((desc: any, i: number) => {
-                  tagArr = [...tagArr, ...desc.tags];
-                });
-                {/* @ts-ignore */}
-                setTags(tagArr);
-                setDescriptions(descriptions);
-              }
+                // console.log(entry.fields)
+                let description = {...entry.fields.blogData, date: entry.fields.publishDate}
+                // console.log(description)
+                setExist(true)
+                setDescription(description);
+                setPostData(entry.fields.postText.content)
             })
-            .catch((e: any) => console.log(e));
-    }, [])
+            .catch((e: any) => setExist(false))
+        }
+    }, [postNumber])
     {/*  @ts-ignore */}
-    console.log()
+    // console.log('description: ', description)
     return (
         <>
-            {descriptions.filter(({id}, i) => postNumber === parseInt(id)).length ?
-                descriptions.filter(({id}, i) => postNumber === parseInt(id)).map((descript, i) => <PostLayout i={i} post={postData} desc={descript} />)
-            : <UnderConstruction images={images} postNumber={postNumber} />}
+            {doesExist ? <PostLayout lightTheme={lightTheme} post={postData} desc={description} /> :
+            <UnderConstruction images={images} postNumber={postNumber} />}
         </>
     )
 }
@@ -70,4 +65,5 @@ const images: Image[] = [
         image: './under_constr2.png'
     },
 ]
-let sampleDataShape:ContentfulBlogData = {nodeType: '', content: []}
+export const sampleDataShape:ContentfulBlogData = {nodeType: '', content: []}
+export const initialDescription:Description = {id: '0', description:'', date: '', tags: [''], image: '', title: ''}

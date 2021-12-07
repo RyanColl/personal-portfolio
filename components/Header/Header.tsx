@@ -18,7 +18,7 @@ const Header = (
           <motion.h1 variants={sentence} initial="hidden" animate="visible" transition={{delay: 1}} className="large-header">
             {text.split('').map((char, i) => {
               return (
-                <motion.span variants={letter} key={char+'-'+i}>{char}</motion.span>
+                <motion.span key={char+'-'+i} variants={letter}>{char}</motion.span>
               )
             })}
           </motion.h1>
