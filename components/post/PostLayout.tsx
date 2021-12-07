@@ -41,7 +41,7 @@ const PostLayout = ({desc, post, lightTheme}: {desc: Description, post: Contentf
                     <motion.hr className="hr-header"  variants={child} animate="visible" initial="hidden" transition={{delay: 1.8}}></motion.hr>
                     <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 2}} className="blog-side-bottom">
                         <motion.span className="small-title">{desc.title}</motion.span>
-                        <motion.span className="back-to-blog" onClick={() => router.push('/blog')}><Icon className="back-arrow-icon" icon="akar-icons:arrow-left" color="#3AF7F0" width="14" /> Back To Blog</motion.span>
+                        <motion.span  className="back-to-blog" onClick={() => router.push('/blog')}><Icon className="back-arrow-icon" icon="akar-icons:arrow-left" color="#3AF7F0" width="16" /> Back To Blog</motion.span>
                     </motion.div>
                 </motion.div>
                 <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 2.2}} className="blog-body">

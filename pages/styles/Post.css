@@ -124,11 +124,23 @@
 }
 .back-to-blog {
     margin-top: 10px;
+    margin-left: 10px;
     color: var(--main-color);
     font-size: 16.5px;
 }
 .back-to-blog:hover {
     cursor: pointer;
+}
+.back-to-blog:hover > svg {
+    animation: arrowLeftAnimation 2s ease-out infinite 0.5s;
+}
+@keyframes arrowLeftAnimation {
+    0% {transform: translateX(0px) translateY(2px);}
+    10% {transform: translateX(-10px) translateY(2px);}
+    20% {transform: translateX(0px) translateY(2px);}
+    30% {transform: translateX(-10px) translateY(2px);}
+    40% {transform: translateX(0px) translateY(2px);}
+    100% {transform: translateX(0px) translateY(2px);}
 }
 .back-arrow-icon {
     transform: translateY(2px);
