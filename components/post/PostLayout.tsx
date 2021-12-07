@@ -12,16 +12,17 @@ const PostLayout = ({desc, post, lightTheme}: {desc: Description, post: Contentf
     const backToBlogWithQuery = (tag: string) => {
         router.push({pathname: '/blog', query: {'tag': `${tag}`}})
     }
+    let delay = 0;
     return (
-        <motion.div id={`blog-post-${desc.id}`} className="blog-post">
-            <motion.div className="blog-header">
+        <motion.div variants={parent} animate="visible" initial="hidden" id={`blog-post-${desc.id}`} className="blog-post">
+            <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 0.4}} className="blog-header">
                 <motion.span className="blog-date">{desc.date.substr(0, 10)}</motion.span>
                 <motion.span className="blog-title">{desc.title}</motion.span>
             </motion.div>
-            <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
-            <motion.div className="blog-wrap">
-                <motion.div className="blog-side">
-                    <motion.div className="blog-side-about">
+            <motion.hr className="hr-header" variants={child} animate="visible" initial="hidden" transition={{delay: 0.6}} ></motion.hr>
+            <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 0.8}} className="blog-wrap">
+                <motion.div variants={parent} animate="visible" initial="hidden" transition={{delay: 1}} className="blog-side">
+                    <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 1.2}} className="blog-side-about">
                         <motion.div whileHover={{scale: 1.1}} whileTap={{scale: 1}} className='blog-side-image-div'>
                             <motion.img  src='./avatar.png' />
                         </motion.div>
@@ -30,20 +31,20 @@ const PostLayout = ({desc, post, lightTheme}: {desc: Description, post: Contentf
                             <motion.span className="at">@rcollicutt.dev</motion.span>
                         </motion.div>
                     </motion.div>
-                    <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
-                    <motion.div className="blog-side-tags">
+                    <motion.hr className="hr-header" variants={child} animate="visible" initial="hidden" transition={{delay: 1.4}}></motion.hr>
+                    <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 1.6}} className="blog-side-tags">
                         <motion.span className='tags-title'>TAGS</motion.span>
                         {desc.tags.map((tag, i) => {
                             return <motion.span onClick={() => {backToBlogWithQuery(tag)}} whileHover={tagStyles} key={`blog-tag-${i}`} className="blog-tag tag">{tag.toUpperCase()}</motion.span>
                         })}
                     </motion.div>
-                    <motion.hr className="hr-header" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 0.8}}></motion.hr>
-                    <motion.div className="blog-side-bottom">
+                    <motion.hr className="hr-header"  variants={child} animate="visible" initial="hidden" transition={{delay: 1.8}}></motion.hr>
+                    <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 2}} className="blog-side-bottom">
                         <motion.span className="small-title">{desc.title}</motion.span>
                         <motion.span className="back-to-blog" onClick={() => router.push('/blog')}><Icon className="back-arrow-icon" icon="akar-icons:arrow-left" color="#3AF7F0" width="14" /> Back To Blog</motion.span>
                     </motion.div>
                 </motion.div>
-                <motion.div className="blog-body">
+                <motion.div variants={child} animate="visible" initial="hidden" transition={{delay: 2.2}} className="blog-body">
                         <motion.div whileHover={{scale: 1.1}} whileTap={{scale: 1}} className='blog-body-image'>
                             <motion.img  src={desc.image} /> 
                         </motion.div>
@@ -62,3 +63,31 @@ const PostLayout = ({desc, post, lightTheme}: {desc: Description, post: Contentf
 }
 
 export default PostLayout
+
+const parent = {
+    hidden: {
+        y: '-100vh',
+        opacity: 0,
+        transition: {
+            when: "afterChildren"
+        }
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.3
+        }
+    }
+}
+const child = {
+    hidden: {
+        y: '100vh',
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1
+    }
+}
