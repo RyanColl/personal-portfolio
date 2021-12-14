@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
-import Project from '../components/projects/Project'
+import ProjectTab from '../components/projects/ProjectTab'
 import { getProjects } from '../services/fetch.services'
+export interface Project {title:string;description:string;image:string;link:string;languages:string[]}
 const ProjectPage = () => {
-    const [projects, setProjects] = useState([{title: '', description: '', image: '', link: ''}])
+    const [projects, setProjects] = useState([])
     useEffect(() => {
         // fetch('/getProjects').then(i => i.json())
         //     .then(i => setProjects(i.projects))
@@ -19,7 +20,7 @@ const ProjectPage = () => {
                 {projects.length>0 && projects.map((project, i) => {
                     return (
                         <motion.div style={{margin: 0, padding: 0}} key={i}>
-                            <Project i={i} project={project} />
+                            <ProjectTab i={i} project={project} />
                         </motion.div>
                     );
                 })}

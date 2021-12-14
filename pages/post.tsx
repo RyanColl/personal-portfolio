@@ -37,7 +37,7 @@ const post = ({lightTheme}: {lightTheme: boolean}) => {
     return (
         <>
             {doesExist ? <PostLayout lightTheme={lightTheme} post={postData} desc={description} /> :
-            <UnderConstruction images={images} postNumber={postNumber} />}
+            <UnderConstruction />}
         </>
     )
 }

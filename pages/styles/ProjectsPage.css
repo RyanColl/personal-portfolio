@@ -43,6 +43,7 @@
 .project-image:hover {
     transform: scale(1.01);
     transition: transform 0.2s ease-out;
+    cursor: pointer;
 }
 .project-description {
     padding: 0 36px;
@@ -81,14 +82,18 @@
     color: #32a2c4;
     font-size: 20px;
 }
+.learn-more:hover {
+    cursor: pointer;
+}
 .learn-more:hover > svg {
     animation: arrowRightAnimation 2s ease-out infinite 0.5s;
+    
 }
 .languages {
     width: 96%;
     background-color: var(--foreground-color2);
     border: 1px solid var(--background-color2);
-    height: 30px;
+    height: 36px;
     border-radius: 4px;
     align-self: center;
     display: flex;

@@ -8,6 +8,8 @@ import './styles/Footer.css';
 import './styles/BlogPage.css';
 import './styles/Post.css';
 import './styles/Resume.css';
+import './styles/Tooltips/Tooltips.css';
+import './styles/Project.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import NavBar from '../components/NavBar/NavBar';
@@ -21,6 +23,7 @@ import { useRouter } from 'next/router';
 import { getTheme, pingSystem, setTheme } from '../services/fetch.services';
 // keeps state in app
 const CustomApp = ({ Component, pageProps }: AppProps) => {
+  const [data, holdData] = useState(null)
   const router = useRouter()
   const [lightTheme, setLightTheme] = useState(false)
   const lightSwitch = () => {
@@ -39,12 +42,19 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
     })
     pingSystem()
     let pathname = window.location.pathname;
-    let id = window.location.search.replace('?post=', '')
+    
     // console.log('query: ', window.location.search.replace('?post=', ''))
-    if(pathname === '/blog' || pathname === '/projects' || pathname === '/about') {
+    if(pathname === '/blog' || pathname === '/projects' || pathname === '/about' || pathname === '/resume') {
       router.push({ pathname })
     }
-    if(pathname === '/post') router.push({pathname, query: {'post': `${id}`} })
+    if(pathname === '/post') {
+      let id = window.location.search.replace('?post=', '')
+      router.push({pathname, query: {'post': `${id}`} })
+    }
+    if(pathname === '/project') {
+      let id = window.location.search.replace('?project=', '').replace('+', ' ')
+      router.push({pathname, query: {'project': `${id}`} })
+    }
   }, [])
   const [currentRoute, setCurrentRoute] = useState('')
   useEffect(() => {
@@ -71,7 +81,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
           lightSwitch={lightSwitch} 
           /> 
         </motion.header>
-        <Component lightTheme={lightTheme} {...pageProps} />
+        <Component data={data} holdData={holdData} lightTheme={lightTheme} {...pageProps} />
       </motion.div>
       {currentRoute!=='about' && <Footer lightTheme={lightTheme} />}
       {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}

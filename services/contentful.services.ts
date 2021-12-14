@@ -8,6 +8,7 @@ const entries = {
     post1: '37ZMuzcRE9VrY00TtsGyGk'
 }
 const client = contentful.createClient(contentfulClient);
+
 export const getInterests = () => {
     return client.getEntry(entries.interests)
     .then((entry: any) => (entry))
@@ -31,4 +32,6 @@ export const getPost = (post: Post) => {
     .then((entry: any) => (entry))
     .catch((err: any) => console.log(`Post Doesnt Exist - Bad Post Number - ${post}`))
 }
+
+
 

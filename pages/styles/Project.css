@@ -1,0 +1,9 @@
+.project-wrapper {
+    width: 800px;
+    margin-bottom: 60px;
+}
+@media only screen and (max-width: 900px) {
+    .project-wrapper {
+        width: 80%;
+    }
+}
