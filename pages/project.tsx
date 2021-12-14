@@ -11,8 +11,6 @@ const project = () => {
     const [project, setProject] = useState('')
     const [projects, setProjects] = useState([initialProjObj])
     useEffect(() => {
-        // fetch('/getProjects').then(i => i.json())
-        //     .then(i => setProjects(i.projects))
         getProjects()
             .then((entry: any) => setProjects(entry.fields.projects as Project[]))
             .catch((e: any) => console.log(e))
@@ -35,5 +33,4 @@ const project = () => {
         </motion.div>
     )
 }
-
 export default project
