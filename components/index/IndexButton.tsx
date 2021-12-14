@@ -14,7 +14,7 @@ export const IndexButton = (
         className="index-button-div">
             <Link href={!back ? `/${text.toLowerCase()}` : ''}>
                 <motion.button 
-                onClick={() => {back && router.push('/')}}
+                onClick={() => {back && router.back()}}
                 whileHover={{scale: 1.05}} type="button" 
                 className="index-button" style={style}>
                     {text} 

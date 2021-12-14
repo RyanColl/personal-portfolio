@@ -1,0 +1,44 @@
+.resume-wrapper {
+    width: 800px;
+    margin-bottom: 60px;
+    height: 800px;
+    position: relative;
+}
+.dl-button {
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transition: all 0.1s;
+    top: 15px;
+    left: 15px;
+}
+.dl-button:hover {
+    background-color: rgba(245, 245, 245, 0.235);
+    transition: all 0.1s;
+    cursor: pointer;
+}
+.resume-object {
+    width: 100%;
+    height: 100%;
+}
+@media only screen and (max-width: 900px) {
+    .resume-wrapper {
+        width: 80%;
+        height: 90vh;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .resume-wrapper {
+        height: 60vh;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .resume-wrapper {
+        height: 55vh;
+    }
+}

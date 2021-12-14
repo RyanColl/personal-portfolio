@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 const openMenu = {translateX: 205, height: 100}
 const closeMenu = {translateX: 0, height: 500}
-const initial = {home: false, projects: false, blog: false, about: false}
+const initial = {home: false, projects: false, blog: false, about: false, resume: false}
 const NavBar = ({lightTheme, lightSwitch}: any) => {
   const router = useRouter()
-  const [active, setActive] = React.useState({home: true, projects: false, blog: false, about: false})
+  const [active, setActive] = React.useState({...initial, home: true})
   const [isOpen, setOpen] = React.useState(false)
   const close = () => setOpen(false)
   useEffect(() => {
@@ -32,6 +32,10 @@ const NavBar = ({lightTheme, lightSwitch}: any) => {
       link: 'About',
       active: active.about
     },
+    {
+      link: 'Resume',
+      active: active.resume
+    }
 ]
 useEffect(() => {
   let route = router.route.replace('/', '')
@@ -39,6 +43,7 @@ useEffect(() => {
   if(route.includes('blog')) setActive({...initial, blog: true})
   if(route.includes('about')) setActive({...initial, about: true})
   if(route.includes('post')) setActive({...initial, blog: true})
+  if(route.includes('resume')) setActive({...initial, resume: true})
   if(route === '') setActive({...initial, home: true})
 }, [router.route])
   return (

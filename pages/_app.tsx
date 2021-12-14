@@ -1,12 +1,13 @@
 import './styles/App.css';
 import './styles/NavBar.css';
-import './styles/IndexPage.css'
+import './styles/IndexPage.css';
 import './styles/component.styles.css';
 import './styles/ProjectsPage.css';
 import './styles/About.css';
 import './styles/Footer.css';
 import './styles/BlogPage.css';
 import './styles/Post.css';
+import './styles/Resume.css';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import NavBar from '../components/NavBar/NavBar';
