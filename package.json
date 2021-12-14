@@ -7,10 +7,10 @@
   "scripts": {
     "next": "next start",
     "dev": "node server.js",
-    "build": "next build",
-    "start": "npm run build && npm run next",
-    "deploy": "npm run proto-build && firebase deploy --only functions,hosting",
-    "proto-build": "next build && next export -o build"
+    "proto-build": "next build",
+    "start": "npm run proto-build && npm run next",
+    "deploy": "npm run build && firebase deploy --only functions,hosting",
+    "build": "next build && next export -o build"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",

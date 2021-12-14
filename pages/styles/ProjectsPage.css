@@ -10,7 +10,7 @@
     margin: 80px 0;
 }
 .project {
-    height: 360px;
+    height: 390px;
     width: 360px;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
     
 }
 .projects > div:hover {
-    transform: scale(1.1);
+   
     transition: transform 0.2s ease-out;
 }
 .project-image {
@@ -40,7 +40,10 @@
 .project-image > a > img {
     height: 100%;
 }
-
+.project-image:hover {
+    transform: scale(1.01);
+    transition: transform 0.2s ease-out;
+}
 .project-description {
     padding: 0 36px;
     background-color:#2e2e2e;
@@ -80,6 +83,26 @@
 }
 .learn-more:hover > svg {
     animation: arrowRightAnimation 2s ease-out infinite 0.5s;
+}
+.languages {
+    width: 96%;
+    background-color: var(--foreground-color2);
+    border: 1px solid var(--background-color2);
+    height: 30px;
+    border-radius: 4px;
+    align-self: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px 8px;
+}
+.language:first-child {
+    margin-left: 12px;
 }
 @media only screen and (max-width: 900px) {
     .projects-page {
