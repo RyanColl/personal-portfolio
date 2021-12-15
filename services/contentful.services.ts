@@ -5,7 +5,8 @@ const entries = {
     interests: '6xTo7B0ZnKbUXBaA4kpAIB',
     projects: '3CSMMnFy5b3BJJZsS27iIF',
     blogDescriptions: '70RE62lRGiuokbrbCbdWhV',
-    post1: '37ZMuzcRE9VrY00TtsGyGk'
+    post1: '37ZMuzcRE9VrY00TtsGyGk',
+    enviroView: 'BUSFPf6yCza2RUE4r34ub'
 }
 const client = contentful.createClient(contentfulClient);
 
@@ -33,5 +34,10 @@ export const getPost = (post: Post) => {
     .catch((err: any) => console.log(`Post Doesnt Exist - Bad Post Number - ${post}`))
 }
 
+export const getEnviroView = () => {
+    return client.getEntry(entries.enviroView)
+    .then((entry: any) => (entry))
+    .catch((err: any) => console.log(err))
+}
 
 

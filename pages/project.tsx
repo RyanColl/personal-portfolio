@@ -3,10 +3,11 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Four04 from '../components/Four04/Four04'
 import Header from '../components/Header/Header'
+import ProjectBackStory from '../components/project/ProjectBackStory'
 import { getProjects } from '../services/fetch.services'
 import { Project } from './projects'
-let initialProjObj:Project = {title: '', description: '', image: '', link: '', languages: ['']}
-const project = () => {
+let initialProjObj:Project = {title: '', description: '', image: '', link: '', languages: [''], backstory: ''}
+const project = ({lightTheme}: {lightTheme: boolean}) => {
     const router = useRouter()
     const [project, setProject] = useState('')
     const [projects, setProjects] = useState([initialProjObj])
@@ -25,7 +26,7 @@ const project = () => {
                 (<>
                 <Header text={`${project}`} tags={[]} />
                 {projects[0].title!=='' && projects.filter(proj => proj.title === project).map((proj, i) => {
-                    return <span>{proj.title}</span>
+                    return <ProjectBackStory lightTheme={lightTheme} project={proj} />
                 })}
                 </>)
             : <Four04 />

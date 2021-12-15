@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
 import ProjectTab from '../components/projects/ProjectTab'
 import { getProjects } from '../services/fetch.services'
-export interface Project {title:string;description:string;image:string;link:string;languages:string[]}
+export interface Project {title:string;description:string;image:string;link:string;languages:string[],backstory:string;}
 const ProjectPage = () => {
     const [projects, setProjects] = useState([])
     useEffect(() => {

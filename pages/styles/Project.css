@@ -2,8 +2,145 @@
     width: 800px;
     margin-bottom: 60px;
 }
+.project-backstory {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.backstory-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+.backstory-image > img:hover {
+    cursor: pointer;
+}
+.backstory-image > img {
+    width: 80%;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25), -4px -4px 4px rgba(0,0,0,0.25);
+    margin-bottom: 4px;
+}
+.backstory-image > span > i {
+    font-size: 16.5px;
+    color: var(--foreground-color2);
+}
+.backstory-header {
+    align-self: flex-start;
+    text-align: left;
+    font-size: 32px;
+    color: var(--foreground-color2);
+    margin: 10px;
+
+}
+.backstory-text {
+    color: var(--foreground-color2);
+    margin: 10px;
+    margin-left: 20px;
+}
+.backstory-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.backstory-skills {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    position: relative;
+    border-right: 1px solid var(--foreground-color2);
+}
+.backstory-skill {
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 4px;
+}
+.backstory-skill > a > svg {
+    width: 2.5em;
+    height: 2.5em;
+}
+.backstory-skill:hover {
+    cursor: pointer;
+    background-color: rgba(245, 245, 245, 0.3);
+    transition: background-color 0.2s;
+}
+.backstory-description {
+    width: 68%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+}
+.backstory-description > span:first-child {
+    color: var(--main-color);
+    margin-left: 10px;
+    margin-bottom: 15px;
+    font-size: 29.5px;
+    padding: 0.1em;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+    background-position: left top, right bottom, left bottom, right top;
+}
+.backstory-description > span:first-child:hover {
+    animation: border-dance 1s infinite linear;
+    cursor: pointer;
+    transition: 0.2s;
+}
+@keyframes border-dance {
+    0% {
+      background-position: left top, right bottom, left bottom, right top;
+    }
+    100% {
+      background-position: left 15px top, right 15px bottom , left bottom 15px , right top 15px;
+    }
+}
+.backstory-description > span:last-child {
+    color: var(--foreground-color2);
+    margin-left: 20px;
+    font-size: 20px;
+}
 @media only screen and (max-width: 900px) {
     .project-wrapper {
         width: 80%;
+    }
+    .backstory-image > img {
+        width: 100%;
+    }
+}
+#angular-icon {
+    
+}
+#express-icon {
+    transform: scale(2.5) translate(5px, 5px);
+}
+@media only screen and (max-width: 600px) {
+    .backstory-top {
+        flex-direction: column;
+    }
+    .backstory-description {
+        width: 100%;
+    }
+    .backstory-skills {
+        width: 85%;
+        padding: 30px 10px;
+        border-right: 0px solid black;
+        border-bottom: 1px solid var(--foreground-color2);
+        flex-direction: row;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .backstory-description > span:last-child {
+        font-size: 18px;
     }
 }
