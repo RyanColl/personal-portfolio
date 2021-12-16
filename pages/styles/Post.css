@@ -32,6 +32,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    flex-direction: row;
     width: 100%;
 }
 .blog-side{
@@ -149,7 +150,21 @@
     .blog-post {
         width: 80%;
     }
-
+    .blog-wrap {
+        flex-direction: column;
+    }
+    .blog-side {
+        width: 100%;
+    }
+    .blog-side-tags {
+        align-items: center;
+    }
+    .blog-side-bottom {
+        align-items: center;
+    }
+    .blog-body {
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 600px) {
     .blog-title {
