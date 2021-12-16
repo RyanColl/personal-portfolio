@@ -5,6 +5,7 @@ export const changeThemeToDark = () => {
     document.documentElement.style.setProperty('--background-color2', '#1F2424');
     document.documentElement.style.setProperty('--foreground-color1', 'white');
     document.documentElement.style.setProperty('--foreground-color2', 'white');
+    document.documentElement.style.setProperty('--foreground-rgb-fade', 'rgba(245, 245, 245, 0.3)');
 }
 
 export const changeThemeToLight = () => {
@@ -12,6 +13,7 @@ export const changeThemeToLight = () => {
     document.documentElement.style.setProperty('--background-color2', 'white');
     document.documentElement.style.setProperty('--foreground-color1', '#2E2E2E');
     document.documentElement.style.setProperty('--foreground-color2', '#1F2424');
+    document.documentElement.style.setProperty('--foreground-rgb-fade', 'rgba(31, 36, 36, 0.3)');
 }
 
 export const changeBorderColor = (color: string) => {

@@ -7,6 +7,7 @@
   --background-color2: #1F2424;
   --foreground-color1: white;
   --foreground-color2: white;
+  --foreground-rgb-fade: rgba(245, 245, 245, 0.3);
   --border-color: white;
   --main-color: #3AF7F0;
 }

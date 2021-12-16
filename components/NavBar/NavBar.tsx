@@ -46,6 +46,7 @@ useEffect(() => {
   if(route.includes('resume')) setActive({...initial, resume: true})
   if(route === '') setActive({...initial, home: true})
 }, [router.route])
+const width = typeof window != 'undefined' && window.innerWidth
   return (
     <motion.div 
     animate={{x:0}}
@@ -134,12 +135,3 @@ useEffect(() => {
   );
 }
 export default NavBar;
-
-const container = {
-  show: {
-    transition: {
-      delayChildren: 0.5,
-      staggerDirection: 1
-    }
-  }
-}

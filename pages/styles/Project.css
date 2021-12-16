@@ -64,6 +64,7 @@
     padding-left: 10px;
     padding-top: 10px;
     border-radius: 4px;
+    z-index: 1;
 }
 .backstory-skill > a > svg {
     width: 2.5em;
@@ -71,7 +72,7 @@
 }
 .backstory-skill:hover {
     cursor: pointer;
-    background-color: rgba(245, 245, 245, 0.3);
+    background-color: var(--foreground-rgb-fade);
     transition: background-color 0.2s;
 }
 .backstory-description {
@@ -122,14 +123,19 @@
     
 }
 #express-icon {
-    transform: scale(2.5) translate(5px, 5px);
+    color: var(--foreground-color2);
+}
+#express-icon-long > path {
+    fill: var(--background-color2);
 }
 @media only screen and (max-width: 600px) {
     .backstory-top {
         flex-direction: column;
     }
     .backstory-description {
-        width: 100%;
+        width: 85%;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--foreground-color2);
     }
     .backstory-skills {
         width: 85%;

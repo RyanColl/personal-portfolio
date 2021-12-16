@@ -34,7 +34,7 @@ const ProjectTab = ({project, i}: any) => {
             {/* @ts-ignore */}
             <motion.div initial={bottomDivAnims.initial} animate={bottomDivAnims.animate} className='languages'>
                     {typeof project.languages == 'object' && project.languages.map((language: string, i: number) => {
-                        console.log('language:',language.replaceAll(' ','-').toLowerCase())
+                        // console.log('language:',language.replaceAll(' ','-').toLowerCase())
                         let gds = 'google-data-studio'
                         return(
                             <motion.div initial={{opacity: 0}} animate={{opacity: hovering?1:0}} className='language'>
@@ -42,7 +42,7 @@ const ProjectTab = ({project, i}: any) => {
                                 <motion.a whileHover={{y: 2.5,scale: 1.15}} data-tooltip={language} data-tooltip-location='bottom' target={'_blank'} href={`https://www.google.com/search?q=${language}`} style={{marginTop: 4}}>
                                     {
                                     language!=='PhaserJS' ? 
-                                    <span className="iconify" color={language==='React Native' ? '#3AF7F0' : language==='TypeScript' ? '#007acc' : undefined} data-icon={language==='React Native'? 'tabler:brand-react-native' : language==='TypeScript' ? "simple-icons:typescript" :`logos:${language.replaceAll(' ','-').toLowerCase()}`} data-width={(language!=='Express' && language!=='Angular') ? 22 : undefined} data-height={(language!=='Express' && language!=='Angular') ? 22 : undefined}></span> :
+                                    <span id={language==='Express' ? 'express-icon-long' : undefined} className="iconify" color={language==='React Native' ? '#3AF7F0' : language==='TypeScript' ? '#007acc' : undefined} data-icon={language==='React Native'? 'tabler:brand-react-native' : language==='TypeScript' ? "simple-icons:typescript" :`logos:${language.replaceAll(' ','-').toLowerCase()}`} data-width={(language!=='Express' && language!=='Angular') ? 22 : undefined} data-height={(language!=='Express' && language!=='Angular') ? 22 : undefined}></span> :
                                     <img src="./phaser.png" style={{width: 24, height: 24}} />
                                     }
                                 </motion.a>

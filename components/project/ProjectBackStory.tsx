@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { Project } from '../../pages/projects'
-import { getEnviroView } from '../../services/contentful.services'
+import { getProject } from '../../services/contentful.services';
+import { useRouter } from 'next/router';
 interface BackStory {
     nodeType: string;
     content: {value: string;}[];
@@ -20,17 +21,19 @@ const initialBackStory: BackStory = {nodeType: '', content: [{value: ''}], data:
 const ProjectBackStory = ({project, lightTheme}: {project: Project, lightTheme: boolean}) => {
     const [backStory, setBackStory] = useState([initialBackStory])
     const [backStoryData, setBackStoryData] = useState({date: '', title: ''})
+    const router = useRouter()
     useEffect(() => {
-        getEnviroView().then((res:any) => {
+        //@ts-ignore 
+        getProject(router.query.project.replaceAll('-', '').replaceAll(' ', '').toLowerCase()).then((res:any) => {
             console.log(res.fields)
             setBackStory(res.fields.backstory.content as BackStory[])
             setBackStoryData(res.fields.backstorydata)
         })
-        
-    }, [])
+      }, [router.route])
     const descriptionStyles = {
         backgroundImage: `linear-gradient(90deg, ${lightTheme?'black':'white'} 50%, transparent 50%), linear-gradient(90deg, ${lightTheme?'black':'white'} 50%, transparent 50%), linear-gradient(0deg, ${lightTheme?'black':'white'} 50%, transparent 50%), linear-gradient(0deg, ${lightTheme?'black':'white'} 50%, transparent 50%)`
     }
+    console.log(lightTheme)
     const width = typeof window != 'undefined' && window.innerWidth
     return (
         <motion.div className='project-backstory'>
@@ -44,7 +47,8 @@ const ProjectBackStory = ({project, lightTheme}: {project: Project, lightTheme: 
                                     <motion.a whileHover={{y: 2.5,scale: 1.15}} data-tooltip={skill} data-tooltip-location={width < 600 ? (skill==='Angular'?'top':'bottom') : (i===0?'top':'right')} target={'_blank'} href={`https://www.google.com/search?q=${skill}`} style={{marginTop: 4}}>
                                         {
                                         skill!=='PhaserJS' ? 
-                                        <span id={skill==='Angular'?'angular-icon':skill==='Express'?'express-icon  ':undefined} className="iconify" color={skill==='React Native' ? '#3AF7F0' : skill==='TypeScript' ? '#007acc' : skill==='Express' ? (lightTheme?'#1F2424':'white') : undefined} data-icon={skill==='React Native'? 'tabler:brand-react-native' : skill==='TypeScript' ? "simple-icons:typescript" : skill==='Angular' ? "logos:angular-icon" : skill==="Express" ? 'simple-icons:express' : `logos:${skill.replaceAll(' ','-').toLowerCase()}`} data-width={(skill!=='Express' && skill!=='Angular') ? 40 : undefined} data-height={(skill!=='Express' && skill!=='Angular') ? 40 : undefined}></span> :
+                                        
+                                        <span id={skill==='Angular'?'angular-icon':skill==='Express'?'express-icon':undefined} className="iconify" color={skill==='React Native' ? '#3AF7F0' : skill==='TypeScript' ? '#007acc' : undefined} data-icon={skill==='React Native'? 'tabler:brand-react-native' : skill==='TypeScript' ? "simple-icons:typescript" : skill==='Angular' ? "logos:angular-icon" : skill==="Express" ? 'simple-icons:express' : `logos:${skill.replaceAll(' ','-').toLowerCase()}`} data-width={(skill!=='Express' && skill!=='Angular') ? 40 : undefined} data-height={(skill!=='Express' && skill!=='Angular') ? 40 : undefined}></span> :
                                         <img src="./phaser.png" style={{width: 42, height: 42}} />
                                         }
                                     </motion.a>
