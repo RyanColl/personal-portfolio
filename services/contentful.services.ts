@@ -11,6 +11,7 @@ const entries = {
     animalrun: '64tlP7LBqKYnlV2qxDxf6H',
     complabscalculator: '3Esib2gJrGd0lXFD4C6r66',
     trashit: '7uwlTLzn7as6COReZCCADK',
+    streetzfootwear: '6uEUtd4QVJaBhWHgjHtpDN',
 }
 const client = contentful.createClient(contentfulClient);
 
@@ -37,7 +38,7 @@ export const getPost = (post: Post) => {
     .then((entry: any) => (entry))
     .catch((err: any) => console.log(`Post Doesnt Exist - Bad Post Number - ${post}`))
 }
-type Project = 'enviroview' | 'projectkalm' | 'movieapp' | 'animalrun' | 'complabscalculator'
+type Project = 'enviroview' | 'projectkalm' | 'movieapp' | 'animalrun' | 'complabscalculator' | 'streetzfootwear'
 export const getProject = (name: Project) => {
     return client.getEntry(entries[name])
     .then((entry: any) => (entry))
