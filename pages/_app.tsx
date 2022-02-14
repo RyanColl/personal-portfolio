@@ -85,6 +85,7 @@ const CustomApp = ({ Component, pageProps }: AppProps) => {
       </motion.div>
       {currentRoute!=='about' && <Footer lightTheme={lightTheme} />}
       {(typeof window != "undefined" && window.innerWidth>700) && <ScrollButton lightTheme={lightTheme} />}
+      
     </>
   );
 };

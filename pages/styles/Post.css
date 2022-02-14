@@ -2,7 +2,6 @@
 .blog-post {
     width: 800px;
     margin-top: 60px;
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,18 +45,101 @@
     flex-direction: column;
 }
 .blog-body-image {
-    width: 200px;
     height: 200px;
     border-radius: 12px;
-    margin-top: 3.5em;
+    margin-top: 4em;
 }
 .blog-body-image:hover {
     cursor: pointer;
 }
 .blog-body-image > img {
-    width: 200px;
     height: 200px;
     border-radius: 12px;
+}
+.blog-body-text {
+    width: 67%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.blog-content-post-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    border-radius: 12px;
+    margin-bottom: 2em;
+}
+.blog-content-post-image > img {
+    height: 200px;
+    border-radius: 12px;
+}
+.content-piece-header-first {
+    text-align: center;
+    margin: 0em !important;
+    margin-top: 2em !important;
+    color: var(--main-color);
+}
+.content-piece-header {
+    text-align: center;
+    color: var(--foreground-color2);
+}
+.content-piece-header-h3 {
+    margin-top: 0px !important;
+    text-align: center;
+    color: var(--foreground-color2);
+}
+.content-piece-paragraph {
+    color: var(--foreground-color2);
+    text-align: center;
+}
+.content-piece-i {
+    margin-bottom: 1.5em;
+}
+.download-file {
+    border-radius: 24px;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8em 1.0em !important;
+    margin: 10px;
+    margin-top: 5px !important;
+}
+.download-file:hover {
+    cursor: pointer;
+}
+.download-file > .dl {
+    color: var(--background-color1) !important;
+    font-size: 20px;
+}
+.copy-button {
+    margin-left: 0.5em;
+    padding: 0.5em;
+    border-radius: 2px;
+    display: grid;
+    place-items: center;
+    background-color: gray;
+    color: black;
+    border: 0px solid black;
+    outline: none;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -2px -2px 2px rgba(0,0,0,0.1);
+}
+.copy-button:active {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.25) inset, -2px -2px 2px rgba(0,0,0,0.25) inset;
+}
+.copy-button:hover {
+    cursor: pointer;
+}
+.content-piece-codeblock {
+    background-color: var(--foreground-color2);
+    color: var(--background-color2);
+    padding: 0.8em;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 .blog-side-about {
     padding: 20px;
@@ -84,8 +166,14 @@
     margin-left: 10px;
 }
 .blog-post-text {
+    max-width: 700px;
+    width: 80%;
     padding: 20px;
-    color: var(--foreground-color2)
+    color: var(--foreground-color2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 .name {
     color: var(--foreground-color2);

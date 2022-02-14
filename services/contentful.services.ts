@@ -5,6 +5,7 @@ const entries = {
     projects: '3CSMMnFy5b3BJJZsS27iIF',
     blogDescriptions: '70RE62lRGiuokbrbCbdWhV',
     post1: '37ZMuzcRE9VrY00TtsGyGk',
+    post2: '6WolJWfjIWnEpJb3oh07fk',
     enviroview: 'BUSFPf6yCza2RUE4r34ub',
     projectkalm: '2lB5Tmhl2CD3YyhWqK5JaD',
     movieapp: 'URAAggfR3LcPQGQIRPHlC',
@@ -32,7 +33,7 @@ export const getBlogDescriptions = () => {
     .then((entry: any) => (entry))
     .catch((err: any) => console.log(err))
 }
-type Post = 'post1'
+type Post = 'post1' | 'post2';
 export const getPost = (post: Post) => {
     return client.getEntry(entries[post])
     .then((entry: any) => (entry))

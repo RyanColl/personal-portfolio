@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import UnderConstruction from '../components/post/UnderConstruction'
-import { getBlogDescriptions, getPost } from '../services/contentful.services'
+import { getPost } from '../services/contentful.services'
 import PostLayout from '../components/post/PostLayout'
 import { Description } from './blog'
 
@@ -49,7 +49,17 @@ export default post
 export interface Image {id:number;image:string;}
 export interface ContentfulBlogData {
     nodeType: string;
-    content: Content[]
+    content: Content[] | [];
+    data: {
+        target? : {
+            fields: {
+                description: string;
+                file: {
+                    url: string;
+                }
+            }
+        }
+    }
 }
 export interface Content {
     nodeType: string;
@@ -65,5 +75,5 @@ const images: Image[] = [
         image: './under_constr2.png'
     },
 ]
-export const sampleDataShape:ContentfulBlogData = {nodeType: '', content: []}
+export const sampleDataShape:ContentfulBlogData = {nodeType: '', content: [], data: {}}
 export const initialDescription:Description = {id: '0', description:'', date: '', tags: [''], image: '', title: ''}

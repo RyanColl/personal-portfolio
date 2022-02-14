@@ -1,4 +1,20 @@
 
+/* Like Button */
+
+.like-button {
+    width: 37.5px;
+    height: 37.5px;
+    background-color: var(--background-color1);
+    border-radius: 4px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-bottom: 3em;
+}
+.like-button:hover {
+  cursor: pointer;
+}
 
 /* Scroll Section */
 
@@ -14,6 +30,7 @@
     display: flex; 
     justify-content: center;
     align-items: center;
+    z-index: 0;
   }
   .scroll-button:hover {
     cursor: pointer;

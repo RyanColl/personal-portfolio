@@ -38,7 +38,7 @@
   } */
 
 .copy-message {
-    position: fixed;
+    position: absolute;
     left: calc(50% - 100px);
     top: calc(50% - 30px);
     width: 240px;
